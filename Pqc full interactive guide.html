@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Quantum Cryptography — Interactive Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a18; line-height: 1.6; padding: 20px; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f1efe8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-danger: #fcebeb;
+    --color-background-warning: #faeeda;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #185fa5;
+    --color-text-success: #3b6d11;
+    --color-text-danger: #a32d2d;
+    --color-text-warning: #854f0b;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --color-border-secondary: rgba(0,0,0,0.3);
+    --color-border-primary: rgba(0,0,0,0.4);
+    --color-border-info: #185fa5;
+    --color-border-danger: #a32d2d;
+    --font-mono: 'SF Mono', 'Fira Code', monospace;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --t: rgba(0,0,0,0.5);
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a18; color: #e8e6de; }
+    :root {
+      --color-background-primary: #2c2c2a;
+      --color-background-secondary: #222220;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-danger: #501313;
+      --color-background-warning: #412402;
+      --color-text-primary: #e8e6de;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #85b7eb;
+      --color-text-success: #97c459;
+      --color-text-danger: #f09595;
+      --color-text-warning: #ef9f27;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+      --color-border-secondary: rgba(255,255,255,0.25);
+      --color-border-primary: rgba(255,255,255,0.4);
+      --color-border-info: #85b7eb;
+      --color-border-danger: #f09595;
+      --t: rgba(255,255,255,0.5);
+    }
+  }
+
+  .wrapper { max-width: 780px; margin: 0 auto; }
+  .header { margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .header p { font-size: 14px; color: var(--color-text-secondary); }
+
+  .nav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+  .nav button { padding:6px 14px; border:0.5px solid var(--color-border-secondary); border-radius:20px; background:transparent; color:var(--color-text-secondary); font-size:13px; cursor:pointer; transition:all .2s; font-family:inherit; }
+  .nav button.active { background:var(--color-background-info); color:var(--color-text-info); border-color:transparent; font-weight:500; }
+  .nav button:hover:not(.active) { background:var(--color-background-secondary); }
+
+  .section { display:none; animation:fadeIn .3s; }
+  .section.visible { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+  .card { background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:12px; padding:16px; margin-bottom:14px; }
+  .tag { display:inline-block; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:500; margin:2px; }
+  .tag-blue { background:var(--color-background-info); color:var(--color-text-info); }
+  .tag-green { background:var(--color-background-success); color:var(--color-text-success); }
+  .tag-red { background:var(--color-background-danger); color:var(--color-text-danger); }
+  .tag-warn { background:var(--color-background-warning); color:var(--color-text-warning); }
+  h3 { font-size:15px; font-weight:500; margin:0 0 8px; color:var(--color-text-primary); }
+  p, li { font-size:14px; color:var(--color-text-secondary); line-height:1.6; margin:4px 0; }
+  strong { color: var(--color-text-primary); font-weight: 500; }
+
+  .step-row { display:flex; align-items:flex-start; gap:12px; margin:10px 0; }
+  .step-num { width:28px; height:28px; border-radius:50%; background:var(--color-background-info); color:var(--color-text-info); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:500; flex-shrink:0; }
+  .qubit-demo { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0; }
+  .qubit-box { width:70px; height:70px; border-radius:10px; border:0.5px solid var(--color-border-secondary); display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:20px; cursor:pointer; transition:all .2s; background:var(--color-background-primary); }
+  .qubit-box:hover { border-color:var(--color-border-primary); }
+  .qubit-box.superposed { background:var(--color-background-info); }
+  .qubit-box.measured-0 { background:var(--color-background-secondary); }
+  .qubit-box.measured-1 { background:var(--color-background-success); }
+
+  .gate-row { display:flex; gap:8px; margin:10px 0; overflow-x:auto; padding-bottom:4px; }
+  .gate { padding:8px 14px; border-radius:8px; font-size:13px; font-weight:500; cursor:pointer; border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); transition:all .2s; white-space:nowrap; font-family:inherit; }
+  .gate:hover { background:var(--color-background-secondary); }
+  .gate.active { background:var(--color-background-info); color:var(--color-text-info); border-color:transparent; }
+
+  .matrix-box { font-family:var(--font-mono); font-size:13px; background:var(--color-background-secondary); border-radius:8px; padding:10px 14px; display:inline-block; border:0.5px solid var(--color-border-tertiary); color:var(--color-text-primary); }
+  .shor-step { padding:12px; border-radius:10px; border:0.5px solid var(--color-border-tertiary); margin:8px 0; background:var(--color-background-primary); transition:all .3s; cursor:pointer; }
+  .shor-step.active { border-color:var(--color-border-info); background:var(--color-background-info); }
+  .shor-step .label { font-size:12px; color:var(--color-text-tertiary); }
+  .shor-step.active .label { color:var(--color-text-info); }
+
+  .kyber-stage { padding:14px; border-radius:10px; border:0.5px solid var(--color-border-tertiary); margin:8px 0; }
+  .kyber-stage.alice { border-left:3px solid #534AB7; }
+  .kyber-stage.bob { border-left:3px solid #1D9E75; }
+
+  .formula { font-family:var(--font-mono); background:var(--color-background-secondary); padding:4px 10px; border-radius:6px; font-size:13px; color:var(--color-text-primary); display:inline-block; margin:2px; border:0.5px solid var(--color-border-tertiary); }
+
+  .nist-card { border-radius:10px; padding:14px; border:0.5px solid var(--color-border-tertiary); background:var(--color-background-primary); }
+  .nist-card.fips203 { border-top:3px solid #534AB7; }
+  .nist-card.fips204 { border-top:3px solid #1D9E75; }
+  .nist-card.fips205 { border-top:3px solid #EF9F27; }
+
+  .progress-bar { height:8px; border-radius:4px; background:var(--color-border-tertiary); margin:6px 0; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:4px; transition:width 1s; }
+
+  .timeline-row { display:flex; gap:0; overflow-x:auto; padding-bottom:8px; margin:12px 0; }
+  .tl-item { text-align:center; flex:0 0 90px; }
+  .tl-dot { width:12px; height:12px; border-radius:50%; margin:0 auto 4px; }
+  .tl-line { height:2px; background:var(--color-border-secondary); flex:1; align-self:center; }
+
+  .comparison-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:14px; }
+  @media(max-width:600px){ .comparison-grid{ grid-template-columns:1fr; } }
+  @media(max-width:400px){ .nav button { font-size:11px; padding:5px 10px; } }
+
+  table { border-collapse: collapse; }
+  svg text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: var(--color-text-primary); }
+  .ts { font-size: 12px; fill: var(--color-text-secondary); }
+  .th { font-size: 14px; font-weight: 500; fill: var(--color-text-primary); }
+
+  .toggle-track { position:relative;width:32px;height:18px;background:var(--color-border-secondary);border-radius:9px;transition:background .2s;display:inline-block; }
+  .toggle-track:has(input:checked) { background:var(--color-text-info); }
+
+  pre { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Post-Quantum Cryptography</h1>
+    <p>Guide interactif complet — TEK UP 2025/2026</p>
+  </div>
+
+<div class="nav">
+  <button class="active" onclick="show('intro')">Introduction</button>
+  <button onclick="show('qubit')">Qubits</button>
+  <button onclick="show('gates')">Quantum Gates</button>
+  <button onclick="show('composer')">IBM Composer</button>
+  <button onclick="show('shor')">Shor's Algorithm</button>
+  <button onclick="show('nist')">NIST PQC</button>
+  <button onclick="show('kyber')">CRYSTALS-Kyber</button>
+</div>
+
+<!-- SECTION: INTRO -->
+<div id="s-intro" class="section visible">
+  <div class="card">
+    <h3>Pourquoi le Post-Quantum Cryptography (PQC)?</h3>
+    <p>Aujourd'hui, RSA et ECC protègent internet. Mais les ordinateurs quantiques peuvent casser ces algorithmes avec <strong>Shor's Algorithm</strong>.</p>
+  </div>
+  <svg width="100%" viewBox="0 0 680 180" style="margin-bottom:14px">
+    <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+    <rect x="20" y="60" width="130" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+    <text class="th" x="85" y="85" text-anchor="middle" dominant-baseline="central" fill="#085041">Classique</text>
+    <text class="ts" x="85" y="103" text-anchor="middle" fill="#085041">Bits 0 ou 1</text>
+    <line x1="155" y1="90" x2="195" y2="90" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="200" y="40" width="160" height="100" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text class="th" x="280" y="75" text-anchor="middle" dominant-baseline="central" fill="#633806">Quantique</text>
+    <text class="ts" x="280" y="95" text-anchor="middle" fill="#633806">Qubits superposés</text>
+    <text class="ts" x="280" y="113" text-anchor="middle" fill="#633806">Shor brise RSA!</text>
+    <line x1="365" y1="90" x2="405" y2="90" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="410" y="60" width="120" height="60" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+    <text class="th" x="470" y="85" text-anchor="middle" dominant-baseline="central" fill="#791F1F">Danger</text>
+    <text class="ts" x="470" y="103" text-anchor="middle" fill="#791F1F">RSA cassé</text>
+    <line x1="535" y1="90" x2="565" y2="90" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="570" y="60" width="95" height="60" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+    <text class="th" x="617" y="85" text-anchor="middle" dominant-baseline="central" fill="#3C3489">Solution</text>
+    <text class="ts" x="617" y="103" text-anchor="middle" fill="#3C3489">PQC (Kyber)</text>
+  </svg>
+  <div class="card">
+    <h3>Contenu du cours</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+      <div class="step-row"><div class="step-num">1</div><div><p style="margin:0;font-weight:500;color:var(--color-text-primary)">Qubits & Quantum Computing</p><p style="margin:0">Superposition, entanglement, Bloch sphere</p></div></div>
+      <div class="step-row"><div class="step-num">2</div><div><p style="margin:0;font-weight:500;color:var(--color-text-primary)">Quantum Gates & Circuits</p><p style="margin:0">H, X, Z, CNOT, QFT</p></div></div>
+      <div class="step-row"><div class="step-num">3</div><div><p style="margin:0;font-weight:500;color:var(--color-text-primary)">Shor's Algorithm</p><p style="margin:0">Menace sur RSA</p></div></div>
+      <div class="step-row"><div class="step-num">4</div><div><p style="margin:0;font-weight:500;color:var(--color-text-primary)">NIST PQC Standards</p><p style="margin:0">FIPS 203, 204, 205</p></div></div>
+      <div class="step-row"><div class="step-num">5</div><div><p style="margin:0;font-weight:500;color:var(--color-text-primary)">CRYSTALS-Kyber</p><p style="margin:0">Lattices, MLWE, KEM</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: QUBITS -->
+<div id="s-qubit" class="section">
+  <div class="card">
+    <h3>Bit classique vs Qubit</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-tertiary);text-align:center;background:var(--color-background-primary)">
+        <div style="font-size:32px;margin-bottom:6px">💡</div>
+        <p style="font-weight:500;color:var(--color-text-primary);margin:0">Bit classique</p>
+        <p>0 <strong>ou</strong> 1</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+          <div style="width:36px;height:36px;border-radius:6px;background:#E1F5EE;border:0.5px solid #0F6E56;display:flex;align-items:center;justify-content:center;font-weight:500;color:#085041">0</div>
+          <div style="width:36px;height:36px;border-radius:6px;background:#FCEBEB;border:0.5px solid #A32D2D;display:flex;align-items:center;justify-content:center;font-weight:500;color:#791F1F">1</div>
+        </div>
+      </div>
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-info);background:var(--color-background-info);text-align:center">
+        <div style="font-size:32px;margin-bottom:6px">⚛️</div>
+        <p style="font-weight:500;color:var(--color-text-info);margin:0">Qubit</p>
+        <p style="color:var(--color-text-info)">0 <strong>et</strong> 1 simultanément</p>
+        <div style="display:flex;gap:4px;justify-content:center;margin-top:8px;align-items:center">
+          <span class="formula">α|0⟩ + β|1⟩</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Clique sur un qubit pour voir la superposition</h3>
+    <div class="qubit-demo" id="qubit-demo"></div>
+    <p id="qubit-msg" style="color:var(--color-text-info);font-size:13px"></p>
+  </div>
+  <div class="card">
+    <h3>Bloch Sphere — visualisation du qubit</h3>
+    <svg width="240" height="260" viewBox="0 0 240 260" style="display:block;margin:0 auto">
+      <defs><marker id="arrowB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <ellipse cx="120" cy="130" rx="80" ry="80" fill="none" stroke="#888780" stroke-width="0.5"/>
+      <ellipse cx="120" cy="130" rx="80" ry="24" fill="none" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3"/>
+      <line x1="120" y1="50" x2="120" y2="210" stroke="#888780" stroke-width="0.5"/>
+      <line x1="40" y1="130" x2="200" y2="130" stroke="#888780" stroke-width="0.5"/>
+      <line x1="120" y1="130" x2="158" y2="80" stroke="#534AB7" stroke-width="2" marker-end="url(#arrowB)"/>
+      <circle cx="158" cy="80" r="5" fill="#534AB7"/>
+      <text x="120" y="38" text-anchor="middle" font-size="13" fill="#5f5e5a">|0⟩</text>
+      <text x="120" y="228" text-anchor="middle" font-size="13" fill="#5f5e5a">|1⟩</text>
+      <text x="206" y="134" font-size="13" fill="#5f5e5a">|+⟩</text>
+      <text x="14" y="134" font-size="13" fill="#5f5e5a">|−⟩</text>
+      <text x="120" y="255" text-anchor="middle" font-size="11" fill="#888780">θ/φ = angles du qubit</text>
+    </svg>
+    <p style="margin-top:8px">θ: angle depuis |0⟩, φ: phase. Chaque point sur la sphère = un état quantique possible.</p>
+  </div>
+  <div class="card">
+    <h3>3 propriétés quantiques clés</h3>
+    <div class="step-row"><div class="step-num">S</div><div><p style="font-weight:500;color:var(--color-text-primary);margin:0">Superposition</p><p>Un qubit est dans plusieurs états à la fois. À la mesure: collapse vers 0 ou 1.</p></div></div>
+    <div class="step-row"><div class="step-num">E</div><div><p style="font-weight:500;color:var(--color-text-primary);margin:0">Entanglement</p><p>Deux qubits liés: mesurer l'un détermine l'autre instantanément.</p></div></div>
+    <div class="step-row"><div class="step-num">I</div><div><p style="font-weight:500;color:var(--color-text-primary);margin:0">Interference</p><p>Les probabilités s'additionnent/s'annulent comme des ondes.</p></div></div>
+  </div>
+</div>
+
+<!-- SECTION: GATES -->
+<div id="s-gates" class="section">
+  <div class="card">
+    <h3>Choisis une gate pour voir son effet</h3>
+    <div class="gate-row">
+      <button class="gate active" onclick="selectGate('H')">H — Hadamard</button>
+      <button class="gate" onclick="selectGate('X')">X — Pauli-X (NOT)</button>
+      <button class="gate" onclick="selectGate('Z')">Z — Pauli-Z</button>
+      <button class="gate" onclick="selectGate('CNOT')">CNOT</button>
+      <button class="gate" onclick="selectGate('T')">Toffoli</button>
+    </div>
+    <div id="gate-info"></div>
+  </div>
+  <div class="card">
+    <h3>Bell states — exemple d'entanglement</h3>
+    <svg width="100%" viewBox="0 0 680 120">
+      <defs><marker id="arrowG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <text x="30" y="45" font-size="13" fill="#5f5e5a">|0⟩</text>
+      <text x="30" y="85" font-size="13" fill="#5f5e5a">|0⟩</text>
+      <line x1="50" y1="42" x2="100" y2="42" stroke="#888780" stroke-width="1.5"/>
+      <line x1="50" y1="82" x2="100" y2="82" stroke="#888780" stroke-width="1.5"/>
+      <rect x="100" y="28" width="36" height="28" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+      <text x="118" y="42" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#3C3489">H</text>
+      <line x1="136" y1="42" x2="180" y2="42" stroke="#888780" stroke-width="1.5"/>
+      <line x1="136" y1="82" x2="260" y2="82" stroke="#888780" stroke-width="1.5"/>
+      <circle cx="180" cy="42" r="5" fill="#534AB7"/>
+      <line x1="180" y1="47" x2="180" y2="70" stroke="#534AB7" stroke-width="1.5"/>
+      <circle cx="180" cy="82" r="8" fill="none" stroke="#534AB7" stroke-width="1.5"/>
+      <line x1="180" y1="74" x2="180" y2="90" stroke="#534AB7" stroke-width="1.5"/>
+      <line x1="172" y1="82" x2="188" y2="82" stroke="#534AB7" stroke-width="1.5"/>
+      <line x1="196" y1="42" x2="260" y2="42" stroke="#888780" stroke-width="1.5"/>
+      <text x="275" y="38" font-size="13" fill="#5f5e5a">1/√2 (|00⟩</text>
+      <text x="275" y="55" font-size="13" fill="#5f5e5a">+ |11⟩)</text>
+      <text x="275" y="78" font-size="13" fill="#185fa5">État de Bell Φ⁺</text>
+      <text x="275" y="95" font-size="13" fill="#185fa5">(entanglé!)</text>
+    </svg>
+  </div>
+</div>
+
+<!-- SECTION: IBM COMPOSER -->
+<div id="s-composer" class="section">
+  <div class="card">
+    <h3>IBM Quantum Composer — Interface simulée</h3>
+    <p>Le IBM Quantum Composer est un outil visuel pour créer des circuits quantiques.</p>
+  </div>
+  <div style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:12px;overflow:hidden;margin-bottom:14px">
+    <div style="background:var(--color-background-primary);padding:10px 16px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Quantum Circuit Editor</span>
+      <span class="tag tag-blue">2 qubits</span>
+      <span class="tag tag-green">Simulé</span>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button class="gate" onclick="runCircuit()" style="padding:4px 12px;font-size:12px">Run</button>
+        <button class="gate" onclick="clearCircuit()" style="padding:4px 12px;font-size:12px">Clear</button>
+      </div>
+    </div>
+    <div style="padding:16px">
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <span style="font-size:12px;color:var(--color-text-secondary);margin-right:4px;align-self:center">Ajouter:</span>
+        <button class="gate" onclick="addGate('H',0)" style="padding:4px 12px;font-size:12px;background:#EEEDFE;color:#3C3489;border-color:#534AB7">H</button>
+        <button class="gate" onclick="addGate('X',0)" style="padding:4px 12px;font-size:12px;background:#E1F5EE;color:#085041;border-color:#0F6E56">X</button>
+        <button class="gate" onclick="addGate('Z',0)" style="padding:4px 12px;font-size:12px;background:#FAEEDA;color:#633806;border-color:#854F0B">Z</button>
+        <button class="gate" onclick="addGate('CNOT',0)" style="padding:4px 12px;font-size:12px;background:#FCEBEB;color:#791F1F;border-color:#A32D2D">CNOT</button>
+        <button class="gate" onclick="addGate('M',0)" style="padding:4px 12px;font-size:12px">Mesure</button>
+      </div>
+      <div id="circuit-board" style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:16px;min-height:100px">
+        <div style="display:flex;align-items:center;gap:0;margin-bottom:16px">
+          <span style="font-size:13px;font-family:var(--font-mono);color:var(--color-text-secondary);width:36px">q[0]</span>
+          <div style="flex:1;height:2px;background:var(--color-border-secondary);position:relative">
+            <div id="gates-q0" style="position:absolute;top:-13px;left:8px;display:flex;gap:6px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0">
+          <span style="font-size:13px;font-family:var(--font-mono);color:var(--color-text-secondary);width:36px">q[1]</span>
+          <div style="flex:1;height:2px;background:var(--color-border-secondary);position:relative">
+            <div id="gates-q1" style="position:absolute;top:-13px;left:8px;display:flex;gap:6px"></div>
+          </div>
+        </div>
+      </div>
+      <div id="circuit-result" style="margin-top:12px;display:none">
+        <div class="card" style="margin:0">
+          <h3>Résultat de la simulation</h3>
+          <div id="result-bars"></div>
+          <p id="result-state" style="margin-top:8px;font-family:var(--font-mono);font-size:13px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Circuits pré-construits</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="gate" onclick="loadPreset('bell')">Bell State</button>
+      <button class="gate" onclick="loadPreset('super')">Superposition H</button>
+      <button class="gate" onclick="loadPreset('not')">Quantum NOT</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: SHOR -->
+<div id="s-shor" class="section">
+  <div class="card">
+    <h3>Pourquoi Shor détruit RSA?</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary)">
+        <p style="font-weight:500;color:var(--color-text-primary);margin:0 0 6px">RSA classique</p>
+        <p>N = p × q avec p,q premiers</p>
+        <p>Trouver p,q: <span class="formula">O(e^(ln n)^(1/3))</span></p>
+        <span class="tag tag-green">Sécurisé classiquement</span>
+      </div>
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-danger);background:var(--color-background-danger)">
+        <p style="font-weight:500;color:var(--color-text-danger);margin:0 0 6px">Avec Shor (quantique)</p>
+        <p style="color:var(--color-text-danger)">Factorisation en</p>
+        <p><span class="formula">(ln n)³</span></p>
+        <span class="tag tag-red">RSA cassé!</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Étapes de Shor — clique pour explorer</h3>
+    <div id="shor-steps"></div>
+    <div id="shor-detail" class="card" style="background:var(--color-background-info);border-color:var(--color-border-info);margin-top:8px;display:none">
+      <p id="shor-detail-text" style="color:var(--color-text-info);margin:0"></p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Exemple: Factoriser N=15 avec a=2</h3>
+    <div style="overflow-x:auto">
+      <table style="width:100%;font-size:13px;border-collapse:collapse">
+        <tr style="border-bottom:0.5px solid var(--color-border-tertiary)">
+          <td style="padding:6px;color:var(--color-text-secondary)">x</td>
+          <td style="padding:6px">0</td><td style="padding:6px">1</td><td style="padding:6px">2</td><td style="padding:6px">3</td><td style="padding:6px">4</td><td style="padding:6px">5</td><td style="padding:6px">6</td><td style="padding:6px">7</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;color:var(--color-text-secondary)">2ˣ mod 15</td>
+          <td style="padding:6px;background:var(--color-background-info);border-radius:4px;color:var(--color-text-info)">1</td>
+          <td style="padding:6px">2</td><td style="padding:6px">4</td><td style="padding:6px">8</td>
+          <td style="padding:6px;background:var(--color-background-info);border-radius:4px;color:var(--color-text-info)">1</td>
+          <td style="padding:6px">2</td><td style="padding:6px">4</td><td style="padding:6px">8</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top:10px">Période r=4 → p = gcd(2²-1, 15) = gcd(3,15) = <strong style="color:var(--color-text-success)">3</strong>, q = gcd(2²+1,15) = gcd(5,15) = <strong style="color:var(--color-text-success)">5</strong></p>
+  </div>
+  <div class="card">
+    <h3>Scalabilité: combien de qubits?</h3>
+    <div id="qubit-scale"></div>
+    <p style="margin-top:8px">Formule: <span class="formula">9n + 2</span> qubits pour factoriser un nombre de n bits</p>
+  </div>
+</div>
+
+<!-- SECTION: NIST -->
+<div id="s-nist" class="section">
+  <div class="card">
+    <h3>NIST PQC Timeline</h3>
+    <div class="timeline-row">
+      <div class="tl-item"><div class="tl-dot" style="background:#534AB7"></div><p style="font-size:11px;color:var(--color-text-secondary)">2016</p><p style="font-size:11px;color:var(--color-text-primary)">Appel</p></div>
+      <div class="tl-line"></div>
+      <div class="tl-item"><div class="tl-dot" style="background:#534AB7"></div><p style="font-size:11px;color:var(--color-text-secondary)">2017</p><p style="font-size:11px;color:var(--color-text-primary)">82 soumissions</p></div>
+      <div class="tl-line"></div>
+      <div class="tl-item"><div class="tl-dot" style="background:#1D9E75"></div><p style="font-size:11px;color:var(--color-text-secondary)">2020</p><p style="font-size:11px;color:var(--color-text-primary)">7 finalistes</p></div>
+      <div class="tl-line"></div>
+      <div class="tl-item"><div class="tl-dot" style="background:#EF9F27"></div><p style="font-size:11px;color:var(--color-text-secondary)">2022</p><p style="font-size:11px;color:var(--color-text-primary)">4ème round</p></div>
+      <div class="tl-line"></div>
+      <div class="tl-item"><div class="tl-dot" style="background:#E24B4A"></div><p style="font-size:11px;color:var(--color-text-secondary)">2024</p><p style="font-size:11px;color:var(--color-text-primary)">Standards!</p></div>
+    </div>
+  </div>
+  <div class="comparison-grid">
+    <div class="nist-card fips203">
+      <p style="font-weight:500;color:#534AB7;margin:0">FIPS 203</p>
+      <p style="font-size:12px;font-weight:500;margin:4px 0">ML-KEM</p>
+      <p style="font-size:12px">CRYSTALS-Kyber</p>
+      <span class="tag" style="background:#EEEDFE;color:#3C3489;font-size:11px">Key Exchange</span>
+      <p style="font-size:11px;margin-top:6px;color:var(--color-text-secondary)">Résistant quantique, basé sur lattices</p>
+    </div>
+    <div class="nist-card fips204">
+      <p style="font-weight:500;color:#0F6E56;margin:0">FIPS 204</p>
+      <p style="font-size:12px;font-weight:500;margin:4px 0">ML-DSA</p>
+      <p style="font-size:12px">CRYSTALS-Dilithium</p>
+      <span class="tag" style="background:#E1F5EE;color:#085041;font-size:11px">Signature</span>
+      <p style="font-size:11px;margin-top:6px;color:var(--color-text-secondary)">Signature digitale quantique</p>
+    </div>
+    <div class="nist-card fips205">
+      <p style="font-weight:500;color:#854F0B;margin:0">FIPS 205</p>
+      <p style="font-size:12px;font-weight:500;margin:4px 0">SLH-DSA</p>
+      <p style="font-size:12px">SPHINCS+</p>
+      <span class="tag" style="background:#FAEEDA;color:#633806;font-size:11px">Signature</span>
+      <p style="font-size:11px;margin-top:6px;color:var(--color-text-secondary)">Hash-based, backup option</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Comparaison des algorithmes</h3>
+    <div id="algo-compare"></div>
+  </div>
+</div>
+
+<!-- SECTION: KYBER -->
+<div id="s-kyber" class="section">
+  <div class="card">
+    <h3>CRYSTALS-Kyber — KEM basé sur lattices</h3>
+    <p>Security based on <strong>MLWE</strong> (Module Learning With Errors) — even quantum computers can't solve it efficiently.</p>
+  </div>
+  <div class="card">
+    <h3>L'idée de base: LWE avec bruit</h3>
+    <div style="margin:10px 0">
+      <div style="padding:10px;border-radius:8px;background:var(--color-background-success);margin-bottom:8px">
+        <p style="font-weight:500;color:var(--color-text-success);margin:0">Sans bruit — Facile à résoudre</p>
+        <p style="font-family:var(--font-mono);font-size:13px;margin:6px 0 0;color:var(--color-text-success)">A × s = t → Gaussian elimination</p>
+      </div>
+      <div style="padding:10px;border-radius:8px;background:var(--color-background-danger)">
+        <p style="font-weight:500;color:var(--color-text-danger);margin:0">Avec bruit — IMPOSSIBLE</p>
+        <p style="font-family:var(--font-mono);font-size:13px;margin:6px 0 0;color:var(--color-text-danger)">A × s + e = t → NP-hard même quantique!</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Protocole Kyber — Alice et Bob</h3>
+    <div class="kyber-stage alice">
+      <p style="font-weight:500;color:#534AB7;margin:0 0 8px">Alice — Key Generation</p>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">1</div><div><p style="margin:0">Génère matrice publique <span class="formula">A</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">2</div><div><p style="margin:0">Choisit secret <span class="formula">s</span> et erreur <span class="formula">e</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">3</div><div><p style="margin:0">Calcule <span class="formula">t = A×s + e</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">4</div><div><p style="margin:0">Publie clé publique <span class="formula">(A, t)</span></p></div></div>
+    </div>
+    <div style="text-align:center;margin:8px 0;font-size:12px;color:var(--color-text-secondary)">↓ Alice publie (A, t) sur internet ↓</div>
+    <div class="kyber-stage bob">
+      <p style="font-weight:500;color:#0F6E56;margin:0 0 8px">Bob — Encapsulation</p>
+      <div class="step-row"><div class="step-num" style="background:#E1F5EE;color:#085041">1</div><div><p style="margin:0">Choisit message <span class="formula">m</span> + aléas <span class="formula">r, e₁, e₂</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#E1F5EE;color:#085041">2</div><div><p style="margin:0">Calcule <span class="formula">u = Aᵀr + e₁</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#E1F5EE;color:#085041">3</div><div><p style="margin:0">Calcule <span class="formula">v = tᵀr + e₂ + encode(m)</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#E1F5EE;color:#085041">4</div><div><p style="margin:0">Envoie ciphertext <span class="formula">c = (u, v)</span></p></div></div>
+    </div>
+    <div style="text-align:center;margin:8px 0;font-size:12px;color:var(--color-text-secondary)">↓ Bob envoie c = (u,v) ↓</div>
+    <div class="kyber-stage alice">
+      <p style="font-weight:500;color:#534AB7;margin:0 0 8px">Alice — Decapsulation</p>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">1</div><div><p style="margin:0">Calcule <span class="formula">m' = decode(v - sᵀu)</span></p></div></div>
+      <div class="step-row"><div class="step-num" style="background:#EEEDFE;color:#3C3489">2</div><div><p style="margin:0">Si m_i proche de 0 → bit=0, proche de q/2 → bit=1</p></div></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Paramètres Kyber</h3>
+    <div id="kyber-params"></div>
+  </div>
+  <div class="card">
+    <h3>Demo interactive: encode(m)</h3>
+    <p>Bit m=0 → 0, Bit m=1 → ⌊q/2⌋</p>
+    <div style="display:flex;gap:12px;align-items:center;margin:10px 0">
+      <button class="gate" onclick="demoEncode(0)">m = 0</button>
+      <button class="gate" onclick="demoEncode(1)">m = 1</button>
+      <span id="encode-result" style="font-family:var(--font-mono);color:var(--color-text-info);font-size:15px"></span>
+    </div>
+    <div id="encode-viz" style="height:40px;display:flex;align-items:center;gap:4px"></div>
+  </div>
+</div>
+
+</div><!-- end wrapper -->
+
+<script>
+const sections = ['intro','qubit','gates','composer','shor','nist','kyber'];
+function show(id) {
+  sections.forEach(s => document.getElementById('s-'+s).classList.remove('visible'));
+  document.getElementById('s-'+id).classList.add('visible');
+  document.querySelectorAll('.nav button').forEach((b,i) => b.classList.toggle('active', sections[i] === id));
+  if(id==='qubit') initQubits();
+  if(id==='gates') selectGate('H');
+  if(id==='shor') initShor();
+  if(id==='nist') initNist();
+  if(id==='kyber') initKyber();
+}
+
+function initQubits() {
+  const demo = document.getElementById('qubit-demo');
+  if(demo.children.length) return;
+  for(let i=0;i<5;i++){
+    const b = document.createElement('div');
+    b.className='qubit-box';
+    b.innerHTML='<span style="font-size:22px">⚛</span><span style="font-size:12px;color:var(--color-text-secondary)">|ψ⟩</span>';
+    b.onclick=()=>measureQubit(b,i);
+    demo.appendChild(b);
+  }
+}
+function measureQubit(b,i){
+  const r=Math.random()<0.5?0:1;
+  b.className='qubit-box '+(r?'measured-1':'measured-0');
+  b.innerHTML='<span style="font-size:28px;font-weight:500">'+r+'</span><span style="font-size:11px;color:var(--color-text-secondary)">mesuré</span>';
+  document.getElementById('qubit-msg').textContent='Qubit '+i+' → collapsé vers |'+r+'⟩ (prob '+(r?'β²':'α²')+')';
+}
+
+const gateData={
+  H:{name:'Hadamard',color:'#EEEDFE',tc:'#3C3489',matrix:'1/√2 [[1, 1],[1,-1]]',effect:'|0⟩ → |+⟩ = 1/√2(|0⟩+|1⟩)\n|1⟩ → |−⟩ = 1/√2(|0⟩−|1⟩)',desc:'Crée la superposition parfaite. |0⟩ devient 50/50 entre 0 et 1.'},
+  X:{name:'Pauli-X (NOT)',color:'#E1F5EE',tc:'#085041',matrix:'[[0,1],[1,0]]',effect:'|0⟩ → |1⟩\n|1⟩ → |0⟩',desc:'Le NOT quantique. Flip le qubit.'},
+  Z:{name:'Pauli-Z',color:'#FAEEDA',tc:'#633806',matrix:'[[1,0],[0,-1]]',effect:'|0⟩ → |0⟩\n|1⟩ → −|1⟩',desc:'Change la phase de |1⟩. Invisible sans interférence.'},
+  CNOT:{name:'CNOT',color:'#FCEBEB',tc:'#791F1F',matrix:'[[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]',effect:'|00⟩→|00⟩, |01⟩→|01⟩\n|10⟩→|11⟩, |11⟩→|10⟩',desc:'2 qubits: flip le target si control=1. Crée l\'entanglement!'},
+  T:{name:'Toffoli (CCNOT)',color:'#EAF3DE',tc:'#27500A',matrix:'3 qubits\nFlip z si x=y=1',effect:'|x,y,z⟩ → |x,y,z⊕(x·y)⟩',desc:'3 qubits: flip le target si les 2 controls sont 1. Universel!'}
+};
+function selectGate(g){
+  document.querySelectorAll('.gate-row .gate').forEach(b=>b.classList.remove('active'));
+  event && event.target && event.target.classList.add('active');
+  const d=gateData[g];
+  if(!d) return;
+  document.getElementById('gate-info').innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary)">
+        <p style="font-weight:500;color:var(--color-text-primary);margin:0 0 8px">Matrice unitaire</p>
+        <div class="matrix-box">${d.matrix}</div>
+      </div>
+      <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary)">
+        <p style="font-weight:500;color:var(--color-text-primary);margin:0 0 8px">Effet sur les états</p>
+        <pre style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin:0">${d.effect}</pre>
+      </div>
+    </div>
+    <div style="padding:12px;border-radius:8px;border:0.5px solid var(--color-border-tertiary);margin-top:10px;background:${d.color}">
+      <p style="font-weight:500;color:${d.tc};margin:0 0 4px">${d.name} — En simple</p>
+      <p style="color:${d.tc};margin:0">${d.desc}</p>
+    </div>`;
+}
+
+let circuit={q0:[],q1:[]};
+const gColors={H:'#534AB7',X:'#1D9E75',Z:'#BA7517',CNOT:'#A32D2D',M:'#888780','⊕':'#A32D2D'};
+function addGate(g,q){
+  circuit.q0.push(g);
+  if(g==='CNOT') circuit.q1.push('⊕');
+  renderCircuit();
+}
+function renderCircuit(){
+  ['q0','q1'].forEach(q=>{
+    const el=document.getElementById('gates-'+q);
+    el.innerHTML=circuit[q].map(g=>'<div style="width:28px;height:28px;border-radius:5px;background:'+(gColors[g]||'#888')+';display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#fff">'+g+'</div>').join('');
+  });
+}
+function clearCircuit(){circuit={q0:[],q1:[]};renderCircuit();document.getElementById('circuit-result').style.display='none';}
+function runCircuit(){
+  const hasH=circuit.q0.includes('H')||circuit.q1.includes('H');
+  const hasCNOT=circuit.q0.includes('CNOT');
+  let states,state;
+  if(hasH&&hasCNOT){states=[{s:'|00⟩',p:0.5},{s:'|11⟩',p:0.5}];state='État de Bell Φ⁺ = 1/√2(|00⟩+|11⟩)';}
+  else if(hasH){states=[{s:'|0⟩',p:0.5},{s:'|1⟩',p:0.5}];state='Superposition parfaite';}
+  else{states=[{s:'|00⟩',p:1}];state='État de base |00⟩';}
+  document.getElementById('result-bars').innerHTML=states.map(({s,p})=>'<div style="display:flex;align-items:center;gap:10px;margin:6px 0"><span style="font-family:var(--font-mono);font-size:13px;width:50px;color:var(--color-text-primary)">'+s+'</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:'+Math.round(p*100)+'%;background:#534AB7"></div></div><span style="font-size:12px;color:var(--color-text-secondary)">'+Math.round(p*100)+'%</span></div>').join('');
+  document.getElementById('result-state').textContent='État: '+state;
+  document.getElementById('circuit-result').style.display='block';
+}
+function loadPreset(p){
+  clearCircuit();
+  if(p==='bell'){circuit.q0=['H','CNOT'];circuit.q1=['⊕'];}
+  else if(p==='super'){circuit.q0=['H'];}
+  else if(p==='not'){circuit.q0=['X'];}
+  renderCircuit();
+}
+
+const shorSteps=[
+  {t:'Classique: choisir a',d:'Choisir un entier a aléatoire coprime avec N. Ex: a=2, N=15'},
+  {t:'Superposition quantique',d:'Appliquer H⊗ⁿ sur |0⟩ → superposition de tous les x de 0 à 2ⁿ-1'},
+  {t:'Modular exponentiation',d:'Circuit MODEXP calcule |x⟩|aˣ mod N⟩ pour tous x en parallèle!'},
+  {t:'Mesurer le registre y',d:'Collapse vers une valeur ŷ = aˣ mod N. Laisse seulement les x avec ce résultat.'},
+  {t:'QFT⁻¹ inverse',d:'La Quantum Fourier Transform inverse révèle la période r de f(x)=aˣ mod N'},
+  {t:'Classique: extraire facteurs',d:'p = gcd(aʳ/²-1, N), q = gcd(aʳ/²+1, N). Clé privée trouvée!'}
+];
+function initShor(){
+  const el=document.getElementById('shor-steps');
+  if(el.children.length) return;
+  shorSteps.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className='shor-step';
+    d.innerHTML='<div class="label">Étape '+(i+1)+'</div><p style="margin:4px 0 0;font-weight:500;color:var(--color-text-primary);font-size:14px">'+s.t+'</p>';
+    d.onclick=function(){
+      document.querySelectorAll('.shor-step').forEach(x=>x.classList.remove('active'));
+      d.classList.add('active');
+      document.getElementById('shor-detail-text').textContent=s.d;
+      document.getElementById('shor-detail').style.display='block';
+    };
+    el.appendChild(d);
+  });
+  const sc=document.getElementById('qubit-scale');
+  const rows=[{bits:512,name:'RSA-512',q:9*512+2,status:'cassé'},{bits:1024,name:'RSA-1024',q:9*1024+2,status:'vulnérable'},{bits:2048,name:'RSA-2048',q:9*2048+2,status:'futur'}];
+  sc.innerHTML=rows.map(r=>'<div style="display:flex;align-items:center;gap:10px;margin:8px 0"><span style="font-size:13px;width:90px;color:var(--color-text-primary)">'+r.name+'</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:'+Math.round((r.bits/2048)*100)+'%;background:'+(r.status==='cassé'?'#E24B4A':r.status==='vulnérable'?'#EF9F27':'#534AB7')+'"></div></div><span style="font-size:12px;color:var(--color-text-secondary);width:90px">'+r.q.toLocaleString()+' qubits</span><span class="tag '+(r.status==='cassé'?'tag-red':r.status==='vulnérable'?'tag-warn':'tag-blue')+'" style="font-size:11px">'+r.status+'</span></div>').join('');
+}
+
+function initNist(){
+  const el=document.getElementById('algo-compare');
+  if(el.children.length) return;
+  const algos=[
+    {name:'RSA-2048',pub:'256 B',sig:'256 B',speed:'Fast',qsafe:false},
+    {name:'Kyber-512',pub:'800 B',sig:'768 B',speed:'Very Fast',qsafe:true},
+    {name:'Kyber-768',pub:'1184 B',sig:'1088 B',speed:'Fast',qsafe:true},
+    {name:'Dilithium2',pub:'1312 B',sig:'2420 B',speed:'Fast',qsafe:true},
+  ];
+  el.innerHTML='<div style="overflow-x:auto"><table style="width:100%;font-size:13px;border-collapse:collapse"><tr style="border-bottom:0.5px solid var(--color-border-secondary)"><td style="padding:6px;color:var(--color-text-secondary)">Algorithme</td><td style="padding:6px;color:var(--color-text-secondary)">Clé pub.</td><td style="padding:6px;color:var(--color-text-secondary)">Chiffré</td><td style="padding:6px;color:var(--color-text-secondary)">Vitesse</td><td style="padding:6px;color:var(--color-text-secondary)">Quantique?</td></tr>'+algos.map(a=>'<tr style="border-bottom:0.5px solid var(--color-border-tertiary)"><td style="padding:6px;font-weight:500;color:#534AB7">'+a.name+'</td><td style="padding:6px">'+a.pub+'</td><td style="padding:6px">'+a.sig+'</td><td style="padding:6px">'+a.speed+'</td><td style="padding:6px"><span class="tag '+(a.qsafe?'tag-green':'tag-red')+'" style="font-size:11px">'+(a.qsafe?'Sécurisé':'Vulnérable')+'</span></td></tr>').join('')+'</table></div>';
+}
+
+function initKyber(){
+  const el=document.getElementById('kyber-params');
+  if(el.children.length) return;
+  const params=[
+    {name:'Kyber-512',n:256,k:2,q:3329,level:'Level 1 (~AES-128)'},
+    {name:'Kyber-768',n:256,k:3,q:3329,level:'Level 3 (~AES-192)'},
+    {name:'Kyber-1024',n:256,k:4,q:3329,level:'Level 5 (~AES-256)'},
+  ];
+  el.innerHTML='<div style="overflow-x:auto"><table style="width:100%;font-size:13px;border-collapse:collapse"><tr style="border-bottom:0.5px solid var(--color-border-secondary)"><td style="padding:6px;color:var(--color-text-secondary)">Algorithme</td><td style="padding:6px;color:var(--color-text-secondary)">n</td><td style="padding:6px;color:var(--color-text-secondary)">k</td><td style="padding:6px;color:var(--color-text-secondary)">q</td><td style="padding:6px;color:var(--color-text-secondary)">Sécurité</td></tr>'+params.map(p=>'<tr style="border-bottom:0.5px solid var(--color-border-tertiary)"><td style="padding:6px;font-weight:500;color:#534AB7">'+p.name+'</td><td style="padding:6px">'+p.n+'</td><td style="padding:6px">'+p.k+'</td><td style="padding:6px">'+p.q+'</td><td style="padding:6px"><span class="tag tag-blue" style="font-size:11px">'+p.level+'</span></td></tr>').join('')+'</table></div>';
+}
+
+function demoEncode(m){
+  const q=3329;
+  const val=m===0?0:Math.floor(q/2);
+  document.getElementById('encode-result').textContent='encode('+m+') = '+val;
+  const viz=document.getElementById('encode-viz');
+  viz.innerHTML='';
+  for(let i=0;i<20;i++){
+    const pct=i/19;
+    const target=m===0?0:0.5;
+    const color=Math.abs(pct-target)<0.15?'#534AB7':'rgba(0,0,0,0.15)';
+    const d=document.createElement('div');
+    d.style.cssText='width:12px;height:12px;border-radius:3px;background:'+color+';transition:all .3s';
+    viz.appendChild(d);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ selectGate('H'); initShor(); initNist(); initKyber(); });
+</script>
+</body>
+</html>
