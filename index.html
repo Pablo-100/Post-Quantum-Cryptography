@@ -1,303 +1,2236 @@
-# PQC GuideClass - Interactive Post-Quantum Learning Platform
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PQC · TEK-UP 2025/26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Senior Level
+   Theme: Dark Luxury Tech · Monochrome + Electric Accents
+═══════════════════════════════════════════════════════════ */
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Palette */
+  --ink:#05050d;
+  --ink2:#0a0a18;
+  --ink3:#0f0f22;
+  --glass:rgba(255,255,255,0.028);
+  --glass2:rgba(255,255,255,0.055);
+  --glass3:rgba(255,255,255,0.09);
+  --line:rgba(255,255,255,0.06);
+  --line2:rgba(255,255,255,0.12);
 
-<div align="center">
+  /* Electric accents */
+  --e1:#5b7fff;   /* electric blue */
+  --e2:#00d4ff;   /* electric cyan */
+  --e3:#b47fff;   /* soft violet */
+  --e4:#ff4f7b;   /* hot pink */
+  --e5:#ffdb4f;   /* gold */
+  --e6:#3fffa8;   /* matrix green */
 
-![PQC GuideClass](https://img.shields.io/badge/PQC-GuideClass-2563eb?style=for-the-badge&logo=academia&logoColor=white)
-![Version](https://img.shields.io/badge/Version-1.1.0-f59e0b?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-10b981?style=for-the-badge)
-![Theme](https://img.shields.io/badge/Theme-Dark%20%2F%20Light-0f172a?style=for-the-badge)
+  /* Text */
+  --t0:#ffffff;
+  --t1:#e8e8f5;
+  --t2:#9898b8;
+  --t3:#55556a;
 
-**Une plateforme d'apprentissage interactive pour comprendre le Post-Quantum Cryptography de manière visuelle et moderne**
+  /* Fonts */
+  --f-display:'Outfit',sans-serif;
+  --f-body:'Space Grotesk',sans-serif;
+  --f-mono:'JetBrains Mono',monospace;
 
-[🚀 Demo](#quick-start) • [📖 Documentation](#features) • [🎓 Commencer](#quick-start) • [🛠️ Personnalisation](#personnalisation)
+  /* Spacing */
+  --r:16px;
+  --r2:24px;
+  --r3:32px;
 
-</div>
-
----
-
-## ✨ **Overview**
-
-PQC GuideClass est une page web interactive conçue pour transformer un cours théorique sur le **quantum computing** et la **cryptographie post-quantique** en une expérience plus claire, plus visuelle et plus engageante.
-
-Le projet couvre les fondations quantiques, les qubits, les portes logiques, l'algorithme de Shor, les standards NIST et l'intuition derrière **CRYSTALS-Kyber**, dans une interface premium avec animations, visualisations et démos interactives.
-
-### 🎯 **Objectifs Pédagogiques**
-- **Comprendre** les bases du calcul quantique
-- **Visualiser** les concepts abstraits avec des démos interactives
-- **Relier** la théorie quantique aux risques cryptographiques
-- **Maîtriser** les notions clés autour de NIST et Kyber
-
----
-
-## 🌟 **Features**
-
-### 🎨 **Expérience UI Premium**
-- **Design dark-tech** avec accents électriques
-- **Mode sombre / mode clair** avec sauvegarde locale
-- **Scroll progress** et navigation fluide
-- **Micro-interactions** et cartes animées
-- **Responsive design** desktop + mobile
-
-### 📚 **Contenu Pédagogique**
-- **Quantum Computing Fundamentals**
-- **Qubits, superposition, measurement**
-- **Quantum Gates** avec intuition visuelle
-- **Shor's Algorithm** expliqué étape par étape
-- **NIST PQC standardization timeline**
-- **CRYSTALS-Kyber** avec sections théoriques et mini démos
-
-### ⚡ **Démos Interactives**
-- **Mesure de qubits** et collapse visuel
-- **Timeline interactive** cliquable
-- **Circuit composer** simplifié
-- **Encode/Decode avec bruit** pour Kyber
-- **Canvas animations** pour renforcer l'intuition
-
----
-
-## 🚀 **Quick Start**
-
-### 📋 **Prérequis**
-- Un navigateur moderne
-- JavaScript activé
-- Aucune installation de framework
-
-### 🔧 **Installation**
-
-```bash
-# Cloner le projet
-git clone https://github.com/username/pqc-guideclass.git
-
-# Entrer dans le dossier
-cd pqc-guideclass
-
-# Ouvrir le fichier principal
-start test.html
-```
-
-### ⚡ **Alternative simple**
-
-Ouvre directement [test.html](C:\Users\21626\Desktop\tt\test.html) dans ton navigateur.
-
-### 🌐 **Serveur local recommandé**
-
-```bash
-python -m http.server 8080
-```
-
-Puis ouvre :
-
-```text
-http://localhost:8080/test.html
-```
-
----
-
-## 🏗️ **Architecture**
-
-### 📁 **Structure du Projet**
-
-```text
-tt/
-├── test.html      # Application complète: HTML + CSS + JS
-└── README.md      # Documentation du projet
-```
-
-### 🛠️ **Technologies**
-- **HTML5** - structure sémantique
-- **CSS3** - design system et responsive layout
-- **Vanilla JavaScript** - logique interactive
-- **Canvas API** - animations et visualisations
-- **LocalStorage** - persistance du thème
-
----
-
-## 🎨 **Design System**
-
-### 🌗 **Thèmes**
-- **Dark mode** par défaut pour une esthétique premium
-- **Light mode** pour un rendu plus académique et lisible
-- **Préférence sauvegardée** automatiquement dans `localStorage`
-- **Raccourci clavier** : `Ctrl/Cmd + K`
-
-### 🎭 **Palette Principale**
-
-```css
---e1: #5b7fff;   /* electric blue */
---e2: #00d4ff;   /* electric cyan */
---e4: #ff4f7b;   /* hot pink */
---e5: #ffdb4f;   /* gold */
---e6: #3fffa8;   /* matrix green */
-```
-
-### ✨ **Effets Visuels**
-- **Glassmorphism léger**
-- **Canvas background animé**
-- **Reveal animations**
-- **Gradient typography**
-- **Glow accents** sur les éléments clés
-
----
-
-## 🎮 **Fonctionnalités Détaillées**
-
-### 🧠 **Sections Principales**
-- **QC** : histoire, intuition et timeline
-- **Qubits** : états, Dirac, sphère de Bloch
-- **Gates** : portes 1-qubit et 2-qubits
-- **Shor** : périodicité, QFT, impact sur RSA
-- **Crypto** : lien entre quantum et sécurité
-- **NIST** : évolution de la standardisation
-- **Kyber** : MLWE, paramètres, démo bruit
-
-### 🔬 **Interactions**
-- **Onglets dynamiques**
-- **Cartes informatives**
-- **Comparaisons visuelles**
-- **Affichage mathématique simplifié**
-- **Composants click-to-reveal**
-
----
-
-## ⌨️ **Raccourcis Clavier**
-
-| Raccourci | Action |
-|-----------|--------|
-| `Ctrl/Cmd + K` | Basculer dark/light mode |
-| `Esc` | Fermer le modal |
-
----
-
-## 🔧 **Personnalisation**
-
-### 🎨 **Changer les Couleurs**
-
-Modifie les variables CSS dans [test.html](C:\Users\21626\Desktop\tt\test.html) :
-
-```css
-:root {
-  --e1: #5b7fff;
-  --e2: #00d4ff;
-  --e4: #ff4f7b;
+  /* Theme surfaces */
+  --nav-bg:rgba(5,5,13,0.85);
+  --nav-bg-mobile:rgba(5,5,13,0.92);
+  --overlay-bg:rgba(5,5,13,.94);
+  --code-bg:rgba(0,0,0,0.5);
+  --panel-dark:rgba(0,0,0,0.4);
+  --panel-soft:rgba(0,0,0,0.3);
+  --quote-bg:rgba(91,127,255,0.04);
+  --row-hover:rgba(255,255,255,0.015);
+  --hero-glow:radial-gradient(ellipse 100% 80% at 50% -20%,rgba(91,127,255,0.12),transparent 65%), radial-gradient(ellipse 60% 50% at 80% 100%,rgba(0,212,255,0.05),transparent);
+  --hint-line:rgba(255,255,255,.15);
+  --hint-wheel:rgba(255,255,255,.25);
+  --hint-text:rgba(255,255,255,.15);
+  --canvas-opacity:.5;
+  --noise-opacity:.035;
 }
-```
 
-### 📝 **Modifier le Contenu**
-- Édite directement les sections HTML
-- Ajuste les textes des cartes et timelines
-- Personnalise les démos dans le bloc `<script>`
+body[data-theme="light"]{
+  --ink:#f5f7fb;
+  --ink2:#ffffff;
+  --ink3:#eef2f8;
+  --glass:rgba(255,255,255,0.7);
+  --glass2:rgba(255,255,255,0.88);
+  --glass3:rgba(255,255,255,0.96);
+  --line:rgba(15,23,42,0.08);
+  --line2:rgba(15,23,42,0.14);
+  --t0:#0f172a;
+  --t1:#1e293b;
+  --t2:#475569;
+  --t3:#7b8798;
+  --nav-bg:rgba(255,255,255,0.84);
+  --nav-bg-mobile:rgba(255,255,255,0.92);
+  --overlay-bg:rgba(241,245,249,.82);
+  --code-bg:rgba(248,250,252,0.95);
+  --panel-dark:rgba(255,255,255,0.82);
+  --panel-soft:rgba(255,255,255,0.92);
+  --quote-bg:rgba(91,127,255,0.07);
+  --row-hover:rgba(15,23,42,0.03);
+  --hero-glow:radial-gradient(ellipse 100% 80% at 50% -20%,rgba(91,127,255,0.18),transparent 65%), radial-gradient(ellipse 60% 50% at 80% 100%,rgba(0,212,255,0.1),transparent);
+  --hint-line:rgba(15,23,42,.22);
+  --hint-wheel:rgba(15,23,42,.35);
+  --hint-text:rgba(15,23,42,.35);
+  --canvas-opacity:.18;
+  --noise-opacity:.015;
+}
 
-### 🌗 **Ajuster les Thèmes**
-- Les tokens principaux sont centralisés dans `:root`
-- Le thème clair repose sur `body[data-theme="light"]`
-- Les préférences utilisateur sont stockées côté navigateur
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{
+  background:var(--ink);
+  color:var(--t1);
+  font-family:var(--f-body);
+  overflow-x:hidden;
+  cursor:none;
+  transition:background .35s,color .35s;
+}
 
----
+/* ─── CURSOR ─── */
+#dot{
+  position:fixed;width:8px;height:8px;
+  background:var(--e2);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+  transition:width .15s,height .15s,opacity .2s;
+}
+#ring{
+  position:fixed;width:36px;height:36px;
+  border:1.5px solid rgba(91,127,255,0.4);
+  border-radius:50%;pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:left .08s cubic-bezier(.16,1,.3,1),top .08s cubic-bezier(.16,1,.3,1),width .2s,height .2s;
+}
+body:hover #dot{opacity:1}
+body *:hover ~ #ring{width:48px;height:48px}
 
-## 📊 **Performance**
+/* ─── LOADER ─── */
+#loader{
+  position:fixed;inset:0;background:var(--ink);
+  z-index:10000;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:20px;
+  transition:opacity 1s,visibility 1s;
+}
+#loader.gone{opacity:0;visibility:hidden}
+.ld-text{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:4px;color:var(--t3);text-transform:uppercase;
+}
+.ld-bar{
+  width:200px;height:1px;background:var(--line2);position:relative;overflow:hidden;
+}
+.ld-bar::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--e1),var(--e2));
+  transform:translateX(-100%);
+  animation:ldanim 1.5s cubic-bezier(.65,0,.35,1) forwards;
+}
+@keyframes ldanim{to{transform:translateX(0)}}
 
-### ⚡ **Choix Techniques**
-- **Single file architecture** pour la simplicité
-- **Vanilla JS** pour éviter le poids inutile
-- **Canvas léger** pour les animations de fond
-- **Transitions CSS** pour garder une UI fluide
+/* ─── NOISE TEXTURE ─── */
+.noise{
+  position:fixed;inset:0;pointer-events:none;z-index:1;opacity:var(--noise-opacity);
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-### ✅ **Bonnes Pratiques**
-- Encodage du fichier en **UTF-8**
-- Vérification des **template literals** JavaScript
-- Test du rendu sur mobile et desktop après chaque modification
+/* ─── SCROLL PROGRESS ─── */
+#sprog{
+  position:fixed;top:0;left:0;height:1px;
+  background:linear-gradient(90deg,var(--e1),var(--e2),var(--e3));
+  z-index:500;width:0%;transition:width .1s;
+  box-shadow:0 0 12px var(--e1);
+}
 
----
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;height:58px;
+  display:flex;align-items:center;padding:0 32px;
+  background:var(--nav-bg);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);z-index:400;
+}
+.nav-logo{
+  font-family:var(--f-display);font-size:15px;font-weight:700;
+  letter-spacing:-.5px;color:var(--t0);cursor:pointer;margin-right:auto;
+  display:flex;align-items:center;gap:6px;
+}
+.nav-logo .dot-accent{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--e2);display:inline-block;
+  box-shadow:0 0 12px var(--e2);
+}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nl{
+  padding:6px 13px;border-radius:8px;
+  font-size:12px;font-weight:500;color:var(--t3);
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+  letter-spacing:.2px;
+}
+.nl:hover{color:var(--t1);background:var(--glass)}
+.nl.on{color:var(--e1);background:rgba(91,127,255,0.1)}
 
-## 🌍 **Compatibilité**
+/* ─── SECTIONS ─── */
+section{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 24px 80px;
+  position:relative;z-index:2;
+}
+.wrap{max-width:1060px;width:100%}
 
-### ✅ **Navigateurs Supportés**
-- **Chrome** 90+
-- **Firefox** 88+
-- **Safari** 14+
-- **Edge** 90+
+/* ─── HERO ─── */
+#hero{
+  background:var(--hero-glow);
+  min-height:100vh;
+}
+.hero-eyebrow{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:5px;
+  color:var(--e1);opacity:.7;margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--e1);opacity:.5}
+.hero-title{
+  font-family:var(--f-display);
+  font-size:clamp(52px,9vw,108px);
+  font-weight:800;line-height:.9;
+  letter-spacing:-4px;
+  margin-bottom:32px;
+}
+.ht-1{display:block;color:var(--t0)}
+.ht-2{
+  display:block;
+  background:linear-gradient(135deg,var(--e1) 0%,var(--e2) 50%,var(--e3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.ht-3{
+  display:block;font-size:.28em;font-weight:500;
+  letter-spacing:-.5px;color:var(--t2);margin-top:12px;
+  -webkit-text-fill-color:var(--t2);
+}
+.hero-desc{
+  font-size:16px;line-height:1.85;color:var(--t2);
+  max-width:520px;margin-bottom:48px;font-weight:400;
+}
+.hero-stats{
+  display:flex;gap:0;margin-bottom:52px;
+  border:1px solid var(--line2);border-radius:var(--r2);
+  overflow:hidden;
+  max-width:560px;
+}
+.hs-item{
+  flex:1;padding:18px 20px;border-right:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.hs-item:last-child{border-right:none}
+.hs-item::before{
+  content:'';position:absolute;inset:0;
+  background:var(--glass);
+  opacity:0;transition:.2s;
+}
+.hs-item:hover::before{opacity:1}
+.hs-n{
+  font-family:var(--f-display);font-size:28px;font-weight:800;
+  line-height:1;margin-bottom:4px;
+  background:linear-gradient(135deg,var(--t0),var(--e2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hs-l{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--t3);text-transform:uppercase}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:14px 28px;border-radius:100px;
+  background:var(--e1);color:var(--ink);
+  font-weight:700;font-size:14px;cursor:pointer;
+  transition:all .3s;text-decoration:none;
+  letter-spacing:-.2px;
+}
+.hero-cta:hover{
+  background:var(--e2);
+  box-shadow:0 20px 60px rgba(91,127,255,0.35);
+  transform:translateY(-2px);
+}
+.hero-cta-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:100px;
+  border:1px solid var(--line2);color:var(--t2);
+  font-weight:500;font-size:14px;cursor:pointer;
+  transition:all .3s;margin-left:12px;
+}
+.hero-cta-ghost:hover{border-color:var(--e1);color:var(--e1);background:rgba(91,127,255,0.06)}
 
-### 📱 **Responsive**
-- **Mobile** 320px+
-- **Tablet** 768px+
-- **Desktop** 1024px+
+/* ─── CHAPTER LABEL ─── */
+.ch-num{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:4px;
+  color:var(--t3);text-transform:uppercase;margin-bottom:10px;
+  display:flex;align-items:center;gap:10px;
+}
+.ch-num::after{content:'';flex:1;max-width:40px;height:1px;background:var(--line2)}
+.ch-h{
+  font-family:var(--f-display);
+  font-size:clamp(32px,5vw,58px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-2px;margin-bottom:18px;color:var(--t0);
+}
+.ch-h .acc{
+  background:linear-gradient(135deg,var(--e1),var(--e2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.ch-h .acc2{-webkit-text-fill-color:var(--e4)}
+.ch-h .acc3{-webkit-text-fill-color:var(--e5)}
+.ch-h .acc4{-webkit-text-fill-color:var(--e6)}
+.ch-sub{
+  font-size:15px;line-height:1.8;color:var(--t2);
+  max-width:620px;margin-bottom:40px;
+}
+.ch-sub strong,.ch-sub b{color:var(--t1);font-weight:500}
+.ch-sub .warn{color:var(--e4)}
+.ch-sub .good{color:var(--e6)}
 
----
+/* ─── CARDS ─── */
+.card{
+  background:var(--glass);
+  border:1px solid var(--line);
+  border-radius:var(--r2);
+  padding:24px;
+  transition:border-color .2s,background .2s;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--r2);
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(91,127,255,0.04),transparent 70%);
+  pointer-events:none;
+}
+.card:hover{background:var(--glass2);border-color:var(--line2)}
+.card-title{
+  font-size:13px;font-weight:600;color:var(--t0);
+  margin-bottom:14px;letter-spacing:-.2px;
+}
+.card-sm{padding:18px;border-radius:var(--r)}
 
-## 🐛 **Debugging**
+/* ─── GRIDS ─── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:720px){.g2,.g3,.g4,.split{grid-template-columns:1fr}}
 
-### 🔍 **Points à Vérifier**
-- Si le texte devient illisible : vérifier l'encodage **UTF-8**
-- Si le thème ne change pas : vider `localStorage`
-- Si une section casse : vérifier les template strings dans le script
+/* ─── CODE BLOCKS ─── */
+.cb{
+  font-family:var(--f-mono);font-size:12px;
+  background:var(--code-bg);
+  border:1px solid rgba(91,127,255,0.15);
+  border-radius:var(--r);
+  padding:18px 20px;margin:12px 0;
+  overflow-x:auto;white-space:pre;line-height:1.9;
+  color:var(--e2);position:relative;
+}
+.cb .cm{color:var(--t3)}
+.cb .cp{color:var(--e3)}
+.cb .cg{color:var(--e5)}
+.cb .cr{color:var(--e4)}
+.cb .cok{color:var(--e6)}
 
-### 🛠️ **Commande utile**
+/* ─── INLINE CODE ─── */
+code{
+  font-family:var(--f-mono);font-size:11.5px;
+  background:rgba(91,127,255,0.1);
+  border:1px solid rgba(91,127,255,0.15);
+  border-radius:5px;padding:2px 7px;color:var(--e2);
+}
 
-```javascript
-localStorage.removeItem('pqc-theme');
-```
+/* ─── BADGES ─── */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 10px;border-radius:20px;
+  font-size:10px;font-weight:600;font-family:var(--f-mono);
+  letter-spacing:.5px;margin:2px;
+}
+.b0{background:rgba(91,127,255,0.12);color:var(--e1);border:1px solid rgba(91,127,255,0.22)}
+.b1{background:rgba(0,212,255,0.08);color:var(--e2);border:1px solid rgba(0,212,255,0.18)}
+.b2{background:rgba(180,127,255,0.1);color:var(--e3);border:1px solid rgba(180,127,255,0.2)}
+.b3{background:rgba(255,79,123,0.1);color:var(--e4);border:1px solid rgba(255,79,123,0.2)}
+.b4{background:rgba(255,219,79,0.08);color:var(--e5);border:1px solid rgba(255,219,79,0.18)}
+.b5{background:rgba(63,255,168,0.08);color:var(--e6);border:1px solid rgba(63,255,168,0.18)}
 
----
+/* ─── INFO BOXES ─── */
+.ibox{border-radius:var(--r);padding:16px;margin:12px 0;position:relative;overflow:hidden}
+.ibox-t{font-family:var(--f-mono);font-size:9px;letter-spacing:3px;font-weight:600;margin-bottom:8px;text-transform:uppercase}
+.ibox p{font-size:13px;color:var(--t2);line-height:1.7}
+.ib0{background:rgba(91,127,255,0.06);border:1px solid rgba(91,127,255,0.15)}
+.ib0 .ibox-t{color:var(--e1)}
+.ib1{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.12)}
+.ib1 .ibox-t{color:var(--e2)}
+.ib2{background:rgba(255,79,123,0.06);border:1px solid rgba(255,79,123,0.15)}
+.ib2 .ibox-t{color:var(--e4)}
+.ib3{background:rgba(255,219,79,0.05);border:1px solid rgba(255,219,79,0.12)}
+.ib3 .ibox-t{color:var(--e5)}
+.ib4{background:rgba(63,255,168,0.05);border:1px solid rgba(63,255,168,0.12)}
+.ib4 .ibox-t{color:var(--e6)}
 
-## 🤝 **Contributing**
+/* ─── STEP ITEMS ─── */
+.step{display:flex;gap:14px;margin:10px 0;align-items:flex-start}
+.snum{
+  width:28px;height:28px;border-radius:8px;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-mono);font-size:11px;font-weight:700;
+  margin-top:1px;
+}
+.sn0{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:var(--e1)}
+.sn1{background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--e2)}
+.sn2{background:rgba(255,219,79,0.07);border:1px solid rgba(255,219,79,0.18);color:var(--e5)}
+.sn3{background:rgba(255,79,123,0.08);border:1px solid rgba(255,79,123,0.2);color:var(--e4)}
+.sc p{font-size:13px;color:var(--t2);line-height:1.6}
+.sc strong{color:var(--t1);font-weight:500}
 
-### 💡 **Comment Contribuer**
-1. **Fork** le projet
-2. **Create** une branche feature
-3. **Commit** les changements
-4. **Push** la branche
-5. **Open** une Pull Request
+/* ─── DIVIDER ─── */
+hr{border:none;height:1px;background:var(--line);margin:28px 0}
 
-### 📝 **Guidelines**
-- Garder le style visuel cohérent
-- Tester dark mode et light mode
-- Vérifier le rendu mobile
-- Éviter de casser les animations existantes
+/* ─── PROGRESS BARS ─── */
+.pb{height:4px;border-radius:2px;background:rgba(255,255,255,0.05);overflow:hidden;margin:4px 0}
+.pf{height:100%;border-radius:2px;transition:width 2s cubic-bezier(.16,1,.3,1)}
 
-### 🎯 **Roadmap**
-- [ ] Ajouter une vraie page `index.html`
-- [ ] Séparer `styles.css` et `script.js`
-- [ ] Ajouter plus de quiz interactifs
-- [ ] Intégrer un mode révision/examen
-- [ ] Ajouter screenshots et assets au repo
+/* ─── TABS ─── */
+.tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;
+  background:rgba(0,0,0,0.3);padding:4px;border-radius:var(--r);
+  border:1px solid var(--line);width:fit-content;}
+.tb{
+  padding:7px 16px;border-radius:10px;border:none;
+  background:transparent;color:var(--t3);
+  font-size:12px;font-family:var(--f-mono);cursor:pointer;
+  transition:all .2s;font-weight:500;letter-spacing:.3px;
+}
+.tb:hover{color:var(--t1)}
+.tb.on{background:var(--glass3);color:var(--t0);box-shadow:0 1px 3px rgba(0,0,0,0.4)}
+.tp{display:none}.tp.on{display:block;animation:tpin .3s cubic-bezier(.16,1,.3,1)}
+@keyframes tpin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
----
+/* ─── TABLE ─── */
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:14px 0}
+th{
+  padding:10px 14px;text-align:left;
+  font-size:9px;font-weight:700;
+  font-family:var(--f-mono);color:var(--t3);
+  border-bottom:1px solid var(--line2);
+  text-transform:uppercase;letter-spacing:1px;
+}
+td{
+  padding:10px 14px;border-bottom:1px solid var(--line);
+  color:var(--t2);vertical-align:top;
+}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--row-hover)}
 
-## 👨‍💻 **Auteur**
+/* ─── QUOTE ─── */
+.quote{
+  border-left:2px solid var(--e1);padding:16px 20px;
+  background:var(--quote-bg);border-radius:0 var(--r) var(--r) 0;
+  margin:20px 0;
+}
+.quote p{font-size:15px;color:var(--t2);font-style:italic;line-height:1.7}
+.quote-a{font-family:var(--f-mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:1px}
 
-**TBINI Mustapha Amin**
+/* ─── TIMELINE ─── */
+.tl{position:relative;padding-left:24px}
+.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--e1),rgba(91,127,255,.1))}
+.tl-item{position:relative;margin-bottom:18px;cursor:pointer}
+.tl-item::before{
+  content:'';position:absolute;left:-22px;top:6px;
+  width:8px;height:8px;border-radius:50%;
+  border:1.5px solid rgba(91,127,255,.4);background:var(--ink);
+  transition:all .2s;
+}
+.tl-item:hover::before{border-color:var(--e1);background:var(--e1)}
+.tl-y{font-family:var(--f-mono);font-size:10px;color:var(--e1);margin-bottom:2px;letter-spacing:1px}
+.tl-e{font-size:13px;font-weight:500;color:var(--t0);margin-bottom:2px}
+.tl-d{font-size:12px;color:var(--t3);max-height:0;overflow:hidden;transition:max-height .35s,color .2s;line-height:1.6}
+.tl-item.open .tl-d{max-height:200px;color:var(--t2)}
 
-- Projet académique TEK-UP
-- Sujet : **Post-Quantum Cryptography**
+/* ─── GATE BUTTONS ─── */
+.g-sel{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.g-btn{
+  padding:8px 16px;border-radius:10px;
+  border:1px solid var(--line2);background:var(--glass);
+  color:var(--t3);font-family:var(--f-mono);font-size:12px;
+  cursor:pointer;transition:all .2s;font-weight:600;
+}
+.g-btn:hover{color:var(--t1);background:var(--glass2)}
+.g-btn.on{background:rgba(91,127,255,0.12);border-color:rgba(91,127,255,0.3);color:var(--e1)}
 
----
+/* ─── QUBITS VIZ ─── */
+.qsph-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.qsph-item{text-align:center}
+.qsph{
+  width:64px;height:64px;border-radius:50%;
+  margin:0 auto 8px;
+}
+.qs0{background:radial-gradient(circle at 38% 35%,rgba(0,212,255,.95),rgba(0,212,255,.05));box-shadow:0 0 30px rgba(0,212,255,.25);animation:spulse 3s ease-in-out infinite}
+.qs1{background:radial-gradient(circle at 38% 35%,rgba(255,79,123,.9),rgba(255,79,123,.05));box-shadow:0 0 30px rgba(255,79,123,.2);animation:spulse 3s ease-in-out infinite 1s}
+.qspl{background:radial-gradient(circle at 38% 35%,rgba(91,127,255,.9),rgba(91,127,255,.05));box-shadow:0 0 30px rgba(91,127,255,.25);animation:spulse 3s ease-in-out infinite 1.5s}
+.qsmix{background:conic-gradient(rgba(0,212,255,.7),rgba(255,79,123,.7),rgba(91,127,255,.7),rgba(0,212,255,.7));animation:spulse 3s ease-in-out infinite .5s,srot 7s linear infinite}
+@keyframes spulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes srot{to{filter:hue-rotate(360deg)}}
+.qs-lbl{font-family:var(--f-mono);font-size:12px;color:var(--t2)}
+.qs-val{font-family:var(--f-mono);font-size:9px;color:var(--t3);margin-top:2px}
 
-## 📝 **Changelog**
+/* ─── WAVE CANVAS ─── */
+.wwave{
+  height:160px;border-radius:var(--r);overflow:hidden;
+  background:rgba(0,212,255,0.02);border:1px solid rgba(0,212,255,0.08);
+  position:relative;margin:14px 0;
+}
+.wwave-lbl{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  font-family:var(--f-mono);font-size:9px;color:rgba(0,212,255,.35);
+  letter-spacing:4px;
+}
+.w-collapse{
+  position:absolute;right:10px;top:10px;
+  padding:5px 14px;border-radius:20px;
+  border:1px solid rgba(255,79,123,.3);background:rgba(255,79,123,.06);
+  color:var(--e4);font-family:var(--f-mono);font-size:10px;
+  cursor:pointer;transition:all .2s;
+}
+.w-collapse:hover{background:rgba(255,79,123,.12)}
 
-### 🆕 **v1.1.0** - Mars 2026
-- ✨ Ajout du **mode clair / mode sombre**
-- ⚡ Amélioration de la documentation `README.md`
-- 🛠️ Correction d'un bug sur les template expressions JavaScript
-- 🔤 Correction des problèmes d'encodage UTF-8
+/* ─── BELL STATES ─── */
+.bell{
+  font-family:var(--f-mono);font-size:13px;color:var(--e2);
+  padding:10px 14px;background:rgba(0,212,255,.04);
+  border:1px solid rgba(0,212,255,.1);border-radius:8px;margin:5px 0;
+}
 
-### 🎉 **v1.0.0**
-- Première version du guide interactif
-- Design dark-tech complet
-- Sections quantum, NIST, Shor et Kyber
-- Démos visuelles intégrées
+/* ─── ENTANGLE CANVAS ─── */
+.ent-wrap{
+  height:140px;border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(91,127,255,.08);
+  background:rgba(91,127,255,.02);margin:14px 0;
+}
 
----
+/* ─── LATTICE WRAP ─── */
+.lat-wrap{
+  height:240px;border-radius:var(--r);overflow:hidden;
+  background:rgba(91,127,255,.02);border:1px solid rgba(91,127,255,.08);
+}
 
-<div align="center">
+/* ─── NIST CARDS ─── */
+.nist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+@media(max-width:640px){.nist-grid{grid-template-columns:1fr}}
+.nist-c{
+  border-radius:var(--r2);padding:22px;
+  border:1px solid var(--line);background:var(--glass);
+  position:relative;overflow:hidden;
+}
+.nist-c::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+}
+.nc0::after{background:linear-gradient(90deg,var(--e1),var(--e3))}
+.nc1::after{background:linear-gradient(90deg,var(--e2),var(--e1))}
+.nc2::after{background:linear-gradient(90deg,var(--e5),var(--e4))}
+.nist-fips{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--t3);margin-bottom:8px}
+.nist-name{font-family:var(--f-display);font-size:24px;font-weight:800;margin-bottom:2px;letter-spacing:-1px}
+.nist-algo{font-size:11px;font-family:var(--f-mono);color:var(--t3);margin-bottom:14px;opacity:.6}
+.nist-li{font-size:12px;color:var(--t2);margin-bottom:5px;padding-left:14px;position:relative;line-height:1.5}
+.nist-li::before{content:'→';position:absolute;left:0;color:var(--t3)}
 
-### 🚀 **Ready to Explore Post-Quantum Cryptography?**
+/* ─── KYBER FLOW ─── */
+.kflow{display:flex;flex-direction:column;gap:0}
+.kf-step{display:flex;gap:14px;align-items:flex-start;padding:12px 0}
+.kf-dot{
+  width:34px;height:34px;border-radius:10px;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-mono);font-size:11px;font-weight:700;margin-top:2px;
+}
+.kd-a{background:rgba(91,127,255,.12);border:1px solid rgba(91,127,255,.25);color:var(--e1)}
+.kd-b{background:rgba(63,255,168,.08);border:1px solid rgba(63,255,168,.2);color:var(--e6)}
+.kd-n{background:rgba(255,219,79,.06);border:1px solid rgba(255,219,79,.15);color:var(--e5)}
+.kf-line{width:1px;background:var(--line);margin:0 0 0 16px;height:14px}
+.kf-tt{font-size:13px;font-weight:600;color:var(--t0);margin-bottom:3px}
+.kf-dd{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:5px}
+.kf-eq{font-family:var(--f-mono);font-size:11px;color:var(--e2);padding:5px 10px;background:rgba(0,212,255,.04);border-radius:6px;border-left:2px solid rgba(0,212,255,.25)}
 
-**[⭐ Star this repo](https://github.com/username/pqc-guideclass)** • **[🍴 Fork](https://github.com/username/pqc-guideclass/fork)** • **[📘 Open the project](C:\Users\21626\Desktop\tt\test.html)**
+/* ─── RACE GRID ─── */
+.race-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.race-box{border-radius:var(--r);padding:18px;border:1px solid var(--line)}
+.rb-c{background:rgba(85,85,106,.05)}
+.rb-q{background:rgba(91,127,255,.06);border-color:rgba(91,127,255,.18)}
+.race-tag{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--t3);margin-bottom:8px}
+.race-time{font-family:var(--f-display);font-size:24px;font-weight:800;margin-top:8px}
+.rb-c .race-time{color:var(--t3)}
+.rb-q .race-time{color:var(--e1)}
 
----
+/* ─── SHOR STEPS ─── */
+.shor-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin:18px 0}
+.shor-btn{
+  flex:0 0 auto;min-width:96px;padding:12px 14px;
+  border-radius:var(--r);border:1px solid var(--line);
+  background:var(--glass);cursor:pointer;transition:all .2s;text-align:center;
+}
+.shor-btn:hover{background:var(--glass2);border-color:var(--line2);transform:translateY(-2px)}
+.shor-btn.on{background:rgba(91,127,255,.1);border-color:rgba(91,127,255,.3)}
+.shor-btn.qb{border-color:rgba(0,212,255,.12)}
+.shor-btn.qb.on{background:rgba(0,212,255,.07);border-color:rgba(0,212,255,.28)}
+.ss-ico{font-size:20px;margin-bottom:5px}
+.ss-tag{font-family:var(--f-mono);font-size:8px;letter-spacing:1px;color:var(--t3);margin-bottom:2px}
+.ss-name{font-size:11px;font-weight:500;color:var(--t1)}
+.shor-detail{
+  border-radius:var(--r);padding:18px;
+  background:rgba(91,127,255,.05);border:1px solid rgba(91,127,255,.12);
+  margin-top:10px;display:none;animation:tpin .3s cubic-bezier(.16,1,.3,1);
+  font-size:13px;color:var(--t2);line-height:1.7;
+}
+.shor-detail.on{display:block}
+.shor-detail strong{color:var(--t1);font-weight:500}
+.shor-detail code{font-size:12px}
 
-**Built for a stronger, clearer, more visual learning experience**
+/* ─── MODAL ─── */
+.modal-ov{
+  position:fixed;inset:0;background:var(--overlay-bg);
+  z-index:3000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  padding:20px;backdrop-filter:blur(16px);
+}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal-box{
+  max-width:640px;width:100%;border-radius:var(--r3);
+  background:var(--ink2);border:1px solid var(--line2);
+  padding:36px;position:relative;max-height:84vh;overflow-y:auto;
+  transform:scale(.96);transition:transform .3s;
+}
+.modal-ov.open .modal-box{transform:none}
+.modal-close{
+  position:absolute;top:12px;right:12px;
+  width:30px;height:30px;border-radius:8px;
+  border:1px solid var(--line2);background:transparent;
+  color:var(--t3);cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.modal-close:hover{background:var(--glass2);color:var(--t1)}
 
-![Footer](https://img.shields.io/badge/Made%20for-PQC%20Education-2563eb?style=for-the-badge)
+/* ─── COMPOSER ─── */
+.comp-wrap{
+  background:var(--panel-dark);border:1px solid var(--line);
+  border-radius:var(--r2);overflow:hidden;margin-bottom:16px;
+}
+.comp-head{
+  background:var(--glass);padding:12px 18px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.comp-body{padding:20px}
+.pal-btn{
+  padding:6px 14px;border-radius:8px;border:1px solid;
+  font-size:11px;font-family:var(--f-mono);font-weight:700;cursor:pointer;
+  transition:all .2s;
+}
+.wire-row{display:flex;align-items:center;margin-bottom:14px}
+.wire-lbl{font-family:var(--f-mono);font-size:11px;color:var(--t3);width:36px;flex-shrink:0}
+.wire-track{flex:1;height:1.5px;background:var(--line2);position:relative;margin:0 6px}
+.wire-gates{position:absolute;top:-14px;left:8px;display:flex;gap:6px}
+.wg{
+  width:28px;height:28px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:#fff;font-family:var(--f-mono);
+}
+.meas-box{
+  background:var(--glass);border:1px solid var(--line);
+  border-radius:var(--r);padding:16px;margin-top:14px;
+  display:none;
+}
+.meas-box.show{display:block;animation:tpin .3s}
+.meas-row{display:flex;align-items:center;gap:10px;margin:7px 0}
+.meas-lbl{font-family:var(--f-mono);font-size:12px;color:var(--t2);width:50px;flex-shrink:0}
 
+/* ─── ENCODE VIZ ─── */
+.enc-axis{
+  height:46px;position:relative;
+  background:var(--panel-soft);border-radius:8px;
+  overflow:hidden;border:1px solid var(--line);margin:12px 0;
+}
+.enc-marker{
+  position:absolute;top:7px;width:7px;height:32px;
+  border-radius:3px;transition:left .5s cubic-bezier(.16,1,.3,1);
+}
+.enc-axis-lbl{
+  position:absolute;bottom:3px;
+  font-family:var(--f-mono);font-size:8px;color:var(--t3);
+}
+
+/* ─── SLIDER ─── */
+.sl-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.sl-row label{font-family:var(--f-mono);font-size:10px;color:var(--t3);width:60px;flex-shrink:0}
+.sl-row input[type=range]{flex:1;accent-color:var(--e1)}
+.sl-val{font-family:var(--f-mono);font-size:11px;color:var(--e1);min-width:46px;text-align:right}
+
+/* ─── BG CANVAS ─── */
+#bgc{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:var(--canvas-opacity)}
+
+/* ─── SECTION BG GLOWS ─── */
+.sbg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1}
+
+/* ─── REVEAL ANIM ─── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.vis{opacity:1;transform:none}
+.rv1{transition-delay:.1s}.rv2{transition-delay:.2s}
+.rv3{transition-delay:.3s}.rv4{transition-delay:.4s}
+
+/* ─── MOBILE NAV ─── */
+.mob-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:400;
+  background:var(--nav-bg-mobile);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);display:none;
+  padding:8px 0;justify-content:space-around;
+}
+@media(max-width:768px){nav .nav-links{display:none}.mob-nav{display:flex}}
+.ml{display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 10px;cursor:pointer}
+.ml-ico{font-size:17px}
+.ml-lbl{font-family:var(--f-mono);font-size:8px;color:var(--t3);letter-spacing:.5px}
+.ml.on .ml-lbl{color:var(--e1)}
+
+/* ─── SCROLL HINT ─── */
+#shint{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  z-index:100;transition:opacity .3s;pointer-events:none;
+}
+#shint.gone{opacity:0}
+.smouse{width:20px;height:32px;border-radius:10px;border:1.5px solid var(--hint-line);display:flex;align-items:flex-start;justify-content:center;padding-top:5px}
+.swheel{width:1.5px;height:6px;background:var(--hint-wheel);border-radius:2px;animation:sw 2s ease infinite}
+@keyframes sw{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
+.stxt{font-family:var(--f-mono);font-size:8px;color:var(--hint-text);letter-spacing:3px}
+
+.theme-toggle{
+  margin-left:12px;
+  min-width:92px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid var(--line2);
+  background:var(--glass);
+  color:var(--t1);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:transform .2s,background .2s,border-color .2s,color .2s;
+}
+.theme-toggle:hover{background:var(--glass2);border-color:rgba(91,127,255,.28);transform:translateY(-1px)}
+.theme-toggle .ti{font-size:13px;line-height:1}
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .theme-toggle{margin-left:auto;min-width:80px;height:34px}
+}
+
+/* ─── END SECTION ─── */
+.end-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}
+@media(max-width:580px){.end-grid{grid-template-columns:1fr 1fr}}
+.end-c{
+  border-radius:var(--r);padding:16px;
+  border:1px solid var(--line);background:var(--glass);
+  text-align:center;cursor:pointer;transition:all .3s;
+}
+.end-c:hover{background:rgba(91,127,255,.08);border-color:rgba(91,127,255,.25);transform:translateY(-3px)}
+.end-ico{font-size:22px;margin-bottom:6px}
+.end-tt{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.end-ss{font-size:10px;color:var(--t3)}
+
+/* ─── GLOBAL TEXT ─── */
+p{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:10px}
+p:last-child{margin-bottom:0}
+li{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:4px}
+ul,ol{padding-left:18px}
+h4{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:10px}
+strong{color:var(--t1);font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="dot"></div><div id="ring"></div>
+<div class="noise"></div>
+<canvas id="bgc"></canvas>
+<div id="sprog"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:5px;color:var(--t3);margin-bottom:16px">POST-QUANTUM CRYPTOGRAPHY</div>
+  <div class="ld-bar"></div>
+  <div class="ld-text" style="margin-top:10px;font-size:9px">TEK-UP 2025/26</div>
 </div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="goTo('hero')">
+    <span class="dot-accent"></span>PQC
+    <span style="color:var(--t3);font-weight:300;margin:0 2px">·</span>TEK-UP
+  </div>
+  <div class="nav-links" style="display:flex;gap:2px">
+    <div class="nl on" onclick="goTo('s-qc')">QC</div>
+    <div class="nl" onclick="goTo('s-qubits')">Qubits</div>
+    <div class="nl" onclick="goTo('s-gates')">Gates</div>
+    <div class="nl" onclick="goTo('s-shor')">Shor</div>
+    <div class="nl" onclick="goTo('s-crypto')">Crypto</div>
+    <div class="nl" onclick="goTo('s-nist')">NIST</div>
+    <div class="nl" onclick="goTo('s-kyber')">Kyber</div>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Basculer le thème">
+    <span class="ti" id="themeIcon">☀</span>
+    <span id="themeLabel">CLAIR</span>
+  </button>
+</nav>
+
+<!-- SCROLL HINT -->
+<div id="shint">
+  <div class="smouse"><div class="swheel"></div></div>
+  <div class="stxt">SCROLL</div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav">
+  <div class="ml on" onclick="goTo('hero')"><div class="ml-ico">🏠</div><div class="ml-lbl">Home</div></div>
+  <div class="ml" onclick="goTo('s-qubits')"><div class="ml-ico">⚛️</div><div class="ml-lbl">Qubits</div></div>
+  <div class="ml" onclick="goTo('s-gates')"><div class="ml-ico">⚡</div><div class="ml-lbl">Gates</div></div>
+  <div class="ml" onclick="goTo('s-shor')"><div class="ml-ico">🔓</div><div class="ml-lbl">Shor</div></div>
+  <div class="ml" onclick="goTo('s-kyber')"><div class="ml-ico">💎</div><div class="ml-lbl">Kyber</div></div>
+</div>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="sbg" style="background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(91,127,255,.12),transparent 65%),radial-gradient(ellipse 50% 50% at 85% 110%,rgba(0,212,255,.06),transparent)"></div>
+  <div class="wrap" style="text-align:center">
+    <div class="hero-eyebrow" style="justify-content:center">TEK-UP UNIVERSITY · 2025/2026</div>
+    <h1 class="hero-title">
+      <span class="ht-1">POST-QUANTUM</span>
+      <span class="ht-2">CRYPTOGRAPHY</span>
+      <span class="ht-3">Guide complet pour 20/20 au DVR</span>
+    </h1>
+    <p class="hero-desc" style="margin:0 auto 48px">De la physique des qubits jusqu'aux standards NIST 2024 — tout ce qu'il faut savoir sur la révolution cryptographique post-quantique, expliqué simplement et visuellement.</p>
+    <div class="hero-stats" style="margin:0 auto 52px">
+      <div class="hs-item"><div class="hs-n">8</div><div class="hs-l">Chapitres</div></div>
+      <div class="hs-item"><div class="hs-n">105</div><div class="hs-l">Qubits Willow</div></div>
+      <div class="hs-item"><div class="hs-n">2024</div><div class="hs-l">NIST Standards</div></div>
+      <div class="hs-item"><div class="hs-n">3329</div><div class="hs-l">q dans Kyber</div></div>
+    </div>
+    <a class="hero-cta" onclick="goTo('s-qc')">Commencer <span style="font-size:16px">→</span></a>
+    <span class="hero-cta-ghost" onclick="goTo('s-nist')">🏛 NIST 2024</span>
+    <hr style="margin:60px auto 40px;max-width:200px;opacity:.4">
+    <div class="g4 rv">
+      <div class="card card-sm" style="text-align:left">
+        <div style="font-size:20px;margin-bottom:8px">⚛️</div>
+        <div style="font-size:12px;font-weight:600;color:var(--t0);margin-bottom:3px">Quantum Computing</div>
+        <div style="font-size:11px;color:var(--t3)">Qubits, superposition, entanglement</div>
+      </div>
+      <div class="card card-sm rv rv1" style="text-align:left">
+        <div style="font-size:20px;margin-bottom:8px">⚡</div>
+        <div style="font-size:12px;font-weight:600;color:var(--t0);margin-bottom:3px">Shor's Algorithm</div>
+        <div style="font-size:11px;color:var(--t3)">Menace RSA — temps polynomial</div>
+      </div>
+      <div class="card card-sm rv rv2" style="text-align:left">
+        <div style="font-size:20px;margin-bottom:8px">🏛️</div>
+        <div style="font-size:12px;font-weight:600;color:var(--t0);margin-bottom:3px">NIST PQC</div>
+        <div style="font-size:11px;color:var(--t3)">FIPS 203, 204, 205 — Août 2024</div>
+      </div>
+      <div class="card card-sm rv rv3" style="text-align:left">
+        <div style="font-size:20px;margin-bottom:8px">💎</div>
+        <div style="font-size:12px;font-weight:600;color:var(--t0);margin-bottom:3px">CRYSTALS-Kyber</div>
+        <div style="font-size:11px;color:var(--t3)">MLWE, lattices, KEM complet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ QC ══════════════════ -->
+<section id="s-qc">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(0,212,255,.05),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 01 — Contexte</div>
+    <h2 class="ch-h">Bits, Moore's Law<br>&amp; l'<span class="acc">Informatique Quantique</span></h2>
+    <p class="ch-sub">La <strong>4ème génération</strong> des ordinateurs utilise des transistors et des bits. Gordon Moore (Intel, 1965) a observé que le nombre de transistors <strong>double tous les 2 ans</strong>. Cette loi atteint ses <span class="warn">limites physiques</span> à l'échelle atomique.</p>
+
+    <div class="split rv">
+      <div>
+        <div class="card rv">
+          <div class="card-title">Moore's Law — Formule</div>
+          <div class="cb">2^((Année - 1949) / 2) = Bits
+<span class="cm">  └─ (Année-1949) doit être pair</span>
+
+Ex: 2025 → 2^((2025-1949)/2) = 2^38
+         ≈ <span class="cg">274 milliards</span></div>
+          <div class="ibox ib2" style="margin-top:10px">
+            <div class="ibox-t">⚠ Limite Physique</div>
+            <p>Transistors à <strong>1–2 nm</strong> = quelques atomes. L'<strong>effet tunnel</strong> traverse les barrières quantiquement. La miniaturisation classique est terminée.</p>
+          </div>
+        </div>
+        <div class="card rv rv1" style="margin-top:14px">
+          <div class="card-title">Performance comparative</div>
+          <div style="margin-top:10px">
+            <div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--t3);width:110px">MacBook Pro M1</span>
+              <div class="pb" style="flex:1"><div class="pf" style="width:5%;background:var(--t3)"></div></div>
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--t3)">2.6 TFLOPS</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--e2);width:110px">Frontier (2024)</span>
+              <div class="pb" style="flex:1"><div class="pf" style="width:60%;background:var(--e2)"></div></div>
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--e2)">1.194 EFLOPS</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--e1);width:110px">Google Willow</span>
+              <div class="pb" style="flex:1"><div class="pf" style="width:100%;background:linear-gradient(90deg,var(--e1),var(--e2))"></div></div>
+              <span style="font-family:var(--f-mono);font-size:10px;color:var(--e1)">∞ QC</span>
+            </div>
+          </div>
+          <div class="ibox ib0" style="margin-top:10px">
+            <div class="ibox-t">Google Willow — Déc 2024</div>
+            <p><strong>105 qubits</strong> — benchmark: ~5 min vs <strong>10²⁵ ans</strong> pour Frontier</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card rv rv2">
+          <div class="card-title">Timeline QC — Clique pour détails</div>
+          <div class="tl" id="tl-qc"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="rv">
+      <h4>Constructeurs Quantiques</h4>
+      <div class="g3" style="margin-top:12px">
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e1);font-size:13px;margin-bottom:4px">IonQ</div><p style="font-size:12px">Ion trap qubits</p><span class="badge b0">Superconducting</span></div>
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e2);font-size:13px;margin-bottom:4px">Xanadu</div><p style="font-size:12px">Photonic qubits</p><span class="badge b1">Photonique</span></div>
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e5);font-size:13px;margin-bottom:4px">D-Wave</div><p style="font-size:12px">Quantum annealer</p><span class="badge b4">Annealing</span></div>
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e4);font-size:13px;margin-bottom:4px">IBM Osprey</div><p style="font-size:12px">433 qubits SC</p><span class="badge b3">433 qubits</span></div>
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e6);font-size:13px;margin-bottom:4px">Rigetti</div><p style="font-size:12px">Cloud QC</p><span class="badge b5">Cloud</span></div>
+        <div class="card card-sm"><div style="font-weight:600;color:var(--e3);font-size:13px;margin-bottom:4px">Google Willow</div><p style="font-size:12px">Supremacy 2019</p><span class="badge b2">105 qubits</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ QUBITS ══════════════════ -->
+<section id="s-qubits">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 60% at 80% 50%,rgba(91,127,255,.07),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 02 — Fondamentaux</div>
+    <h2 class="ch-h">Qubits &amp;<br><span style="-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--e3),var(--e1));-webkit-background-clip:text">Mathématiques Quantiques</span></h2>
+    <p class="ch-sub">Notation de Dirac, kets, bras, produit interne, normalisation, sphère de Bloch, registres n-qubits, produit tensoriel et entanglement.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:20px;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+      <button class="tb on" onclick="tab2(this,'t-dirac')">Notation Dirac</button>
+      <button class="tb" onclick="tab2(this,'t-qubit')">Le Qubit</button>
+      <button class="tb" onclick="tab2(this,'t-register')">Registres</button>
+      <button class="tb" onclick="tab2(this,'t-tensor')">Produit ⊗</button>
+      <button class="tb" onclick="tab2(this,'t-entangle')">Entanglement</button>
+      <button class="tb" onclick="tab2(this,'t-measure')">Mesure</button>
+    </div>
+
+    <!-- DIRAC -->
+    <div class="tp on" id="t-dirac">
+      <div class="split">
+        <div>
+          <div class="card rv">
+            <div class="card-title">Ket |ψ⟩ — Vecteur colonne</div>
+            <div class="cb">|ψ⟩ = [α₀]   αᵢ ∈ ℂ
+       [α₁]
+       [α₂]
+
+<span class="cm">Base computationnelle:</span>
+|0⟩ = [1]    |1⟩ = [0]
+      [0]           [1]</div>
+            <div class="ibox ib0">
+              <div class="ibox-t">Note</div>
+              <p>Les kets peuvent avoir n'importe quelle dimension. Les <strong>kets unitaires</strong> (norme=1) sont des états quantiques valides.</p>
+            </div>
+          </div>
+          <div class="card rv rv1" style="margin-top:14px">
+            <div class="card-title">Bra ⟨ψ| — Conjugué</div>
+            <div class="cb">⟨ψ| = [α₀*, α₁*, α₂*]
+<span class="cm">     └─ conjugués complexes du ket</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card rv rv2">
+            <div class="card-title">Produit Interne ⟨φ|ψ⟩</div>
+            <div class="cb"><span class="cp">Norme:</span>        ||ψ|| = √⟨ψ|ψ⟩
+<span class="cm">               normaliser: |ψ̃⟩ = |ψ⟩/||ψ||</span>
+
+<span class="cg">Orthogonalité:</span> ⟨φ|ψ⟩ = 0 → orthogonaux
+
+<span class="cm">Vérif: |ψ⟩ = [1/√2, i/√2]ᵀ</span>
+⟨ψ|ψ⟩ = (1/√2)²+(-i/√2)(i/√2)
+       = 1/2 + 1/2 = <span class="cok">1 ✓</span></div>
+          </div>
+          <div class="card rv rv3" style="margin-top:14px">
+            <div class="card-title">Normalisation</div>
+            <div class="cb">|ψ⟩ = α|0⟩ + β|1⟩
+
+Condition: <span class="cr">|α|² + |β|² = 1</span>
+<span class="cm">Conservation de la probabilité totale</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUBIT -->
+    <div class="tp" id="t-qubit">
+      <div class="split">
+        <div>
+          <div class="card rv">
+            <div class="card-title">Définition Formelle</div>
+            <p>États ∈ espace de Hilbert H₂ engendré par {|0⟩, |1⟩}:</p>
+            <div class="cb">|ψ⟩ = <span class="cp">α</span>|0⟩ + <span class="cg">β</span>|1⟩  avec |α|²+|β|²=1
+
+P(|0⟩) = <span class="cp">|α|²</span>    P(|1⟩) = <span class="cg">|β|²</span>
+
+Sphère de Bloch:
+|ψ⟩ = cos(<span class="cp">θ</span>/2)|0⟩ + sin(<span class="cp">θ</span>/2)e^(i<span class="cg">φ</span>)|1⟩</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+              <div style="border:1px solid var(--line);border-radius:var(--r);padding:12px">
+                <div style="font-family:var(--f-mono);font-size:9px;color:var(--t3);margin-bottom:6px">BIT CLASSIQUE</div>
+                <p>0 <strong>OU</strong> 1</p>
+                <div style="display:flex;gap:6px;margin-top:8px">
+                  <div style="width:36px;height:36px;border-radius:7px;background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-weight:700;color:var(--e2)">0</div>
+                  <div style="width:36px;height:36px;border-radius:7px;background:rgba(255,79,123,.1);border:1px solid rgba(255,79,123,.25);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-weight:700;color:var(--e4)">1</div>
+                </div>
+              </div>
+              <div style="border:1px solid rgba(91,127,255,.2);border-radius:var(--r);padding:12px;background:rgba(91,127,255,.05)">
+                <div style="font-family:var(--f-mono);font-size:9px;color:var(--e1);margin-bottom:6px">QUBIT</div>
+                <p>0 <strong>ET</strong> 1</p>
+                <div class="cb" style="margin-top:6px;font-size:10px;padding:6px 10px">α|0⟩ + β|1⟩</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card rv rv1">
+            <div class="card-title">États Quantiques</div>
+            <div class="qsph-row">
+              <div class="qsph-item"><div class="qsph qs0"></div><div class="qs-lbl">|0⟩</div><div class="qs-val">α=1,β=0</div></div>
+              <div class="qsph-item"><div class="qsph qspl"></div><div class="qs-lbl">|+⟩</div><div class="qs-val">α=β=1/√2</div></div>
+              <div class="qsph-item"><div class="qsph qsmix"></div><div class="qs-lbl">|ψ⟩</div><div class="qs-val">superpos.</div></div>
+              <div class="qsph-item"><div class="qsph qs1"></div><div class="qs-lbl">|1⟩</div><div class="qs-val">α=0,β=1</div></div>
+            </div>
+            <div style="text-align:center;margin:10px 0">
+              <button onclick="measViz()" style="padding:8px 20px;border-radius:20px;border:1px solid rgba(91,127,255,.35);background:rgba(91,127,255,.08);color:var(--e1);font-family:var(--f-mono);font-size:11px;cursor:pointer;transition:all .2s" onmouseover="this.style.background='rgba(91,127,255,.16)'" onmouseout="this.style.background='rgba(91,127,255,.08)'">⚡ Mesurer → Collapse</button>
+              <div id="qmr" style="margin-top:10px;font-family:var(--f-mono);font-size:18px;min-height:24px;transition:all .3s"></div>
+            </div>
+          </div>
+          <div class="card rv rv2" style="margin-top:14px">
+            <div class="card-title">Superposition</div>
+            <div class="wwave">
+              <canvas id="wc" style="width:100%;height:100%"></canvas>
+              <div class="wwave-lbl">SUPERPOSITION D'ÉTATS</div>
+              <button class="w-collapse" onclick="wCollapse()">⚡ Mesurer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="tp" id="t-register">
+      <div class="card rv">
+        <div class="card-title">Registre à n Qubits — H_N (dim = 2ⁿ)</div>
+        <div class="cb">n-Qubit: |Ψ⟩ = <span class="cp">Σᵢ αᵢ|i⟩</span>  i = 0..N-1
+<span class="cm">          avec Σᵢ |αᵢ|² = 1</span></div>
+      </div>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv rv1">
+          <div class="card-title">2 Qubits (N=4)</div>
+          <div class="cb">|ψ⟩ = α₀|00⟩ + α₁|01⟩ + α₂|10⟩ + α₃|11⟩
+
+Exemple (α=½ tous):
+|ψ⟩ = ½|00⟩ + ½|01⟩ + ½|10⟩ + ½|11⟩
+<span class="cm">Vérif: (1/2)²×4 = 1 ✓</span>
+
+Bell: |ψ⟩ = (|00⟩+|11⟩)/√2 <span class="cg">← entanglé!</span></div>
+        </div>
+        <div class="card rv rv2">
+          <div class="card-title">Puissance Exponentielle</div>
+          <div class="cb">n=1  → <span class="cp">2 états</span>
+n=10 → <span class="cp">1,024 états</span>
+n=50 → <span class="cg">≈10¹⁵ états</span>
+n=300→ <span class="cr">+ d'états que d'atomes!</span></div>
+          <div class="ibox ib0" style="margin-top:10px">
+            <div class="ibox-t">Speedup Quantique</div>
+            <p>n qubits traite <strong>2ⁿ valeurs simultanément</strong> — origine du quantum speedup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TENSOR -->
+    <div class="tp" id="t-tensor">
+      <div class="card rv">
+        <div class="card-title">Produit Tensoriel A⊗B</div>
+        <div class="cb">A ∈ M^(K,N), B ∈ M^(L,M) → A⊗B ∈ M^(KL,NM)
+
+X = [0 1]    Z = [1  0]
+    [1 0]        [0 -1]
+
+X⊗Z = [ 0  0  1  0]
+      [ 0  0  0 -1]
+      [ 1  0  0  0]
+      [ 0 -1  0  0]</div>
+      </div>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv rv1">
+          <div class="card-title">Vecteurs d'état</div>
+          <div class="cb">|0⟩⊗|0⟩ = [1,0,0,0]ᵀ = |00⟩
+
+|+⟩⊗|+⟩ = ½(|00⟩+|01⟩+|10⟩+|11⟩)
+<span class="cm">  Superposition uniforme de 4 états</span></div>
+        </div>
+        <div class="card rv rv2">
+          <div class="card-title">Propriétés</div>
+          <div class="ibox ib1">
+            <div class="ibox-t">Distributivité</div>
+            <p>(A⊗B)(C⊗D) = AC⊗BD si dimensions compatibles</p>
+          </div>
+          <div class="ibox ib3" style="margin-top:8px">
+            <div class="ibox-t">Non-commutativité</div>
+            <p>A⊗B ≠ B⊗A en général!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTANGLE -->
+    <div class="tp" id="t-entangle">
+      <div class="card rv">
+        <div class="card-title">Entanglement Quantique (Intrication)</div>
+        <p>Un état 2-qubits est entanglé s'il ne peut <strong>pas</strong> être décomposé en produit tensoriel:</p>
+        <div class="ent-wrap"><canvas id="ec" style="width:100%;height:100%"></canvas></div>
+        <p style="text-align:center;font-size:12px;color:var(--t3)">Mesurer q₀ détermine instantanément q₁ — "spooky action at a distance" (Einstein)</p>
+      </div>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv rv1">
+          <div class="card-title">États de Bell (base orthonormée)</div>
+          <div class="bell">|Φ⁺⟩ = (|00⟩ + |11⟩)/√2</div>
+          <div class="bell">|Φ⁻⟩ = (|00⟩ - |11⟩)/√2</div>
+          <div class="bell">|Ψ⁺⟩ = (|01⟩ + |10⟩)/√2</div>
+          <div class="bell">|Ψ⁻⟩ = (|01⟩ - |10⟩)/√2</div>
+        </div>
+        <div class="card rv rv2">
+          <div class="card-title">Test d'entanglement</div>
+          <div class="cb"><span class="cm">Est-ce que |Φ⁺⟩ factorisable?</span>
+(|0⟩+|1⟩)⊗(|0⟩+|1⟩)
+= ½(|00⟩+|01⟩+|10⟩+|11⟩)
+<span class="cr">≠ (|00⟩+|11⟩)/√2 ← ENTANGLÉ! ✓</span></div>
+          <div class="ibox ib1" style="margin-top:10px">
+            <div class="ibox-t">Application Crypto</div>
+            <p>Base du protocole <strong>BB84</strong> et de la <strong>QKD</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEASURE -->
+    <div class="tp" id="t-measure">
+      <div class="card rv">
+        <div class="card-title">Mesure Quantique — Le Collapse</div>
+        <div class="cb">Pour |φ⟩ = <span class="cp">α</span>|0⟩ + <span class="cg">β</span>|1⟩:
+
+→ |0⟩: prob = <span class="cp">|α|²</span>  (irréversible!)
+→ |1⟩: prob = <span class="cg">|β|²</span>
+
+n-qubits: prob(|i⟩) = <span class="cp">|αᵢ|²</span></div>
+      </div>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv rv1">
+          <div class="card-title">Demo — 5 Qubits</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0" id="qdemo"></div>
+          <p id="qmsg" style="font-family:var(--f-mono);font-size:11px;color:var(--e1);min-height:16px"></p>
+          <div style="display:flex;gap:6px;margin-top:12px">
+            <button onclick="qReset()" style="padding:6px 14px;border-radius:8px;border:1px solid rgba(91,127,255,.3);background:rgba(91,127,255,.07);color:var(--e1);font-family:var(--f-mono);font-size:11px;cursor:pointer">Reset</button>
+            <button onclick="qMeasAll()" style="padding:6px 14px;border-radius:8px;border:1px solid var(--line2);background:var(--glass);color:var(--t2);font-family:var(--f-mono);font-size:11px;cursor:pointer">Mesurer Tous</button>
+          </div>
+        </div>
+        <div class="card rv rv2">
+          <div class="card-title">Théorèmes Fondamentaux</div>
+          <div class="step" style="margin-top:10px"><div class="snum sn3">1</div><div class="sc"><strong>No-Cloning</strong><p>Impossible de copier un état inconnu — base de la sécurité QKD.</p></div></div>
+          <div class="step"><div class="snum sn1">2</div><div class="sc"><strong>No-Signaling</strong><p>Entanglement ≠ communication supraluminique.</p></div></div>
+          <div class="step"><div class="snum sn0">3</div><div class="sc"><strong>Deferred Measurement</strong><p>Mesures reportables à la fin du circuit sans changer le résultat.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ GATES ══════════════════ -->
+<section id="s-gates">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(255,219,79,.04),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 03 — Circuits</div>
+    <h2 class="ch-h">Quantum Gates<br>&amp; <span class="acc3">Circuits</span></h2>
+    <p class="ch-sub">Transformations unitaires (U†U=I) — <strong>réversibles</strong> et conservant les normes. Nombre inputs = outputs.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:20px;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+      <button class="tb on" onclick="tab2(this,'g-1q')">1-Qubit</button>
+      <button class="tb" onclick="tab2(this,'g-2q')">2-Qubits</button>
+      <button class="tb" onclick="tab2(this,'g-3q')">Toffoli</button>
+      <button class="tb" onclick="tab2(this,'g-comp')">Circuit Editor</button>
+      <button class="tb" onclick="tab2(this,'g-qft')">QFT⁻¹</button>
+    </div>
+
+    <!-- 1Q -->
+    <div class="tp on" id="g-1q">
+      <div class="g-sel" id="gsel1q">
+        <button class="g-btn on" onclick="g1q(this,'I')">I</button>
+        <button class="g-btn" onclick="g1q(this,'X')">X</button>
+        <button class="g-btn" onclick="g1q(this,'Y')">Y</button>
+        <button class="g-btn" onclick="g1q(this,'Z')">Z</button>
+        <button class="g-btn" onclick="g1q(this,'H')">H</button>
+        <button class="g-btn" onclick="g1q(this,'P')">P(θ)</button>
+        <button class="g-btn" onclick="g1q(this,'S')">S/T</button>
+        <button class="g-btn" onclick="g1q(this,'U')">U(θ,φ,λ)</button>
+      </div>
+      <div id="g1q-out"></div>
+    </div>
+
+    <!-- 2Q -->
+    <div class="tp" id="g-2q">
+      <div class="g-sel" id="gsel2q">
+        <button class="g-btn on" onclick="g2q(this,'CNOT')">CNOT</button>
+        <button class="g-btn" onclick="g2q(this,'CZ')">CZ</button>
+        <button class="g-btn" onclick="g2q(this,'SWAP')">SWAP</button>
+        <button class="g-btn" onclick="g2q(this,'CH')">CH (exam!)</button>
+      </div>
+      <div id="g2q-out"></div>
+      <div class="ibox ib3" style="margin-top:14px">
+        <div class="ibox-t">Créer un état de Bell</div>
+        <div class="cb" style="margin-top:8px">H⊗I sur |00⟩ → (1/√2)(|0⟩+|1⟩)⊗|0⟩
+CNOT       → (1/√2)(|00⟩+|11⟩) = <span class="cok">|Φ⁺⟩ ✓</span></div>
+      </div>
+    </div>
+
+    <!-- TOFFOLI -->
+    <div class="tp" id="g-3q">
+      <div class="card rv">
+        <div class="card-title">Toffoli Gate (CCNOT) — 3 Qubits</div>
+        <p>Flip le target si <strong>deux</strong> controls = 1. Gate <strong>universelle</strong> pour calcul classique réversible.</p>
+        <div class="cb">|x,y,z⟩ → |x,y,z⊕(x·y)⟩
+
+|x=0,y=?,z⟩ → |x,y,z⟩    <span class="cm">(rien si x=0)</span>
+|x=1,y=0,z⟩ → |x,y,z⟩    <span class="cm">(rien si y=0)</span>
+|x=1,y=1,z⟩ → |x,y,z̄⟩   <span class="cg">← flip si x=y=1</span>
+
+U_Toffoli = block_diag(I₂,I₂,I₂,X₂) [8×8]</div>
+        <div class="ibox ib1" style="margin-top:12px">
+          <div class="ibox-t">MCX Gates</div>
+          <p><strong>Multi-Controlled X gates</strong> généralisent CNOT/Toffoli. Essentielles pour MODEXP dans Shor's algorithm.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPOSER -->
+    <div class="tp" id="g-comp">
+      <div class="comp-wrap">
+        <div class="comp-head">
+          <span style="font-family:var(--f-mono);font-size:11px;color:var(--t2);font-weight:600">Quantum Circuit Editor</span>
+          <span class="badge b2">3 qubits</span>
+          <span class="badge b5" id="cstatus">Prêt</span>
+          <div style="margin-left:auto;display:flex;gap:6px">
+            <button onclick="cRun()" style="padding:5px 14px;border-radius:8px;background:rgba(91,127,255,.12);border:1px solid rgba(91,127,255,.3);color:var(--e1);font-family:var(--f-mono);font-size:11px;cursor:pointer;font-weight:600">▶ Run</button>
+            <button onclick="cClear()" style="padding:5px 14px;border-radius:8px;background:var(--glass);border:1px solid var(--line);color:var(--t3);font-family:var(--f-mono);font-size:11px;cursor:pointer">Clear</button>
+          </div>
+        </div>
+        <div class="comp-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+            <span style="font-family:var(--f-mono);font-size:10px;color:var(--t3);align-self:center">Gate:</span>
+            <button class="pal-btn" style="background:rgba(91,127,255,.1);border-color:rgba(91,127,255,.3);color:var(--e1)" onclick="cAdd('H')">H</button>
+            <button class="pal-btn" style="background:rgba(0,212,255,.07);border-color:rgba(0,212,255,.25);color:var(--e2)" onclick="cAdd('X')">X</button>
+            <button class="pal-btn" style="background:rgba(255,219,79,.06);border-color:rgba(255,219,79,.25);color:var(--e5)" onclick="cAdd('Z')">Z</button>
+            <button class="pal-btn" style="background:rgba(255,79,123,.07);border-color:rgba(255,79,123,.25);color:var(--e4)" onclick="cAdd('CNOT')">CNOT</button>
+            <button class="pal-btn" style="background:rgba(63,255,168,.06);border-color:rgba(63,255,168,.2);color:var(--e6)" onclick="cAdd('T')">T</button>
+          </div>
+          <div style="display:flex;gap:6px;margin-bottom:14px">
+            <span style="font-family:var(--f-mono);font-size:10px;color:var(--t3);align-self:center">Sur:</span>
+            <button id="ct0" onclick="cTgt(0)" style="padding:3px 12px;border-radius:6px;background:rgba(91,127,255,.12);border:1px solid rgba(91,127,255,.35);color:var(--e1);font-family:var(--f-mono);font-size:10px;cursor:pointer">q[0]</button>
+            <button id="ct1" onclick="cTgt(1)" style="padding:3px 12px;border-radius:6px;background:var(--glass);border:1px solid var(--line);color:var(--t3);font-family:var(--f-mono);font-size:10px;cursor:pointer">q[1]</button>
+            <button id="ct2" onclick="cTgt(2)" style="padding:3px 12px;border-radius:6px;background:var(--glass);border:1px solid var(--line);color:var(--t3);font-family:var(--f-mono);font-size:10px;cursor:pointer">q[2]</button>
+          </div>
+          <div style="background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:var(--r);padding:16px">
+            <div class="wire-row"><span class="wire-lbl">q[0]</span><div class="wire-track"><div id="cw0" class="wire-gates"></div></div></div>
+            <div class="wire-row"><span class="wire-lbl">q[1]</span><div class="wire-track"><div id="cw1" class="wire-gates"></div></div></div>
+            <div class="wire-row" style="margin-bottom:0"><span class="wire-lbl">q[2]</span><div class="wire-track"><div id="cw2" class="wire-gates"></div></div></div>
+          </div>
+          <div class="meas-box" id="cmeas">
+            <h4 style="margin-bottom:10px;font-size:13px">Résultats</h4>
+            <div id="cbars"></div>
+            <div class="ibox ib0" style="margin-top:8px"><p id="cstate" style="font-family:var(--f-mono);font-size:12px"></p></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button onclick="cPreset('bell')" style="padding:6px 14px;border-radius:8px;border:1px solid var(--line2);background:var(--glass);color:var(--t2);font-family:var(--f-mono);font-size:11px;cursor:pointer">Bell State</button>
+        <button onclick="cPreset('ghz')" style="padding:6px 14px;border-radius:8px;border:1px solid var(--line2);background:var(--glass);color:var(--t2);font-family:var(--f-mono);font-size:11px;cursor:pointer">GHZ State</button>
+        <button onclick="cPreset('super')" style="padding:6px 14px;border-radius:8px;border:1px solid var(--line2);background:var(--glass);color:var(--t2);font-family:var(--f-mono);font-size:11px;cursor:pointer">Superposition</button>
+      </div>
+    </div>
+
+    <!-- QFT -->
+    <div class="tp" id="g-qft">
+      <div class="card rv">
+        <div class="card-title">QFT⁻¹ — Inverse Quantum Fourier Transform</div>
+        <p>Mappe le domaine fréquentiel vers la base computationnelle. Cœur de Shor's Algorithm.</p>
+        <div class="cb">QFT⁻¹|x⟩ = <span class="cp">(1/√N)</span> Σₖ e^(<span class="cg">2πixk/N</span>)|k⟩
+
+Gate Rₖ⁻¹ = [[1, 0], [0, e^(2πi/2ᵏ)]]
+
+<span class="cm">Circuit 3 qubits:</span>
+q₂: <span class="cp">H</span> → R₂⁻¹ → R₃⁻¹
+q₁:       <span class="cp">H</span>  → R₂⁻¹
+q₀:                  <span class="cp">H</span>
+Puis: SWAP q₀↔q₂</div>
+      </div>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv rv1">
+          <div class="card-title">Rôle dans Shor</div>
+          <div class="step"><div class="snum sn0">1</div><div class="sc"><strong>MODEXP</strong><p>Périodicité r encodée dans les amplitudes</p></div></div>
+          <div class="step"><div class="snum sn1">2</div><div class="sc"><strong>QFT⁻¹</strong><p>Pics de prob aux multiples de 2ⁿ/r</p></div></div>
+          <div class="step"><div class="snum sn2">3</div><div class="sc"><strong>Mesure</strong><p>x̂ ≈ s·2ⁿ/r → fractions continues → r</p></div></div>
+        </div>
+        <div class="card rv rv2">
+          <div class="card-title">Complexité</div>
+          <div class="cb">FFT classique:   O(n·2ⁿ)
+QFT quantique:   <span class="cok">O(n²)</span>
+<span class="cm">→ Speedup exponentiel!</span></div>
+          <div class="ibox ib1" style="margin-top:10px">
+            <p>QFT quantique est <strong>exponentiellement plus rapide</strong> que FFT classique.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SHOR ══════════════════ -->
+<section id="s-shor">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 55% at 50% 60%,rgba(255,79,123,.06),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 04 — La Menace</div>
+    <h2 class="ch-h">Shor's Algorithm<br><span class="acc2">Brise RSA</span></h2>
+    <p class="ch-sub">RSA repose sur l'impossibilité de factoriser de grands N. Shor (1994): factorisation en <strong>temps polynomial</strong> O((log N)³) — <span class="warn">exponentiellement plus rapide</span> que tout algo classique.</p>
+
+    <div class="split rv">
+      <div>
+        <div class="card">
+          <div class="card-title">RSA — Comment ça marche</div>
+          <div class="step"><div class="snum sn1">1</div><div class="sc"><strong>Choisir p,q premiers</strong><p>Deux grands nombres premiers (512 bits)</p></div></div>
+          <div class="step"><div class="snum sn1">2</div><div class="sc"><strong>N = p×q</strong><p>Modulus public (2048 bits)</p></div></div>
+          <div class="step"><div class="snum sn1">3</div><div class="sc"><strong>φ(N) = (p-1)(q-1)</strong><p>Fonction d'Euler</p></div></div>
+          <div class="step"><div class="snum sn1">4</div><div class="sc"><strong>e coprime à φ(N)</strong><p>Exposant public</p></div></div>
+          <div class="step"><div class="snum sn1">5</div><div class="sc"><strong>d: e·d ≡ 1 mod φ(N)</strong><p>Clé privée</p></div></div>
+          <div class="cb" style="margin-top:10px">Chiffrement:   C = Mᵉ mod N
+Déchiffrement: M = Cᵈ mod N</div>
+        </div>
+        <div class="race-grid" style="margin-top:14px">
+          <div class="race-box rb-c">
+            <div class="race-tag">CLASSIQUE (GNFS)</div>
+            <div style="font-size:10px;color:var(--t3);margin-bottom:8px">O(e^(ln N)^(1/3))</div>
+            <div class="pb"><div class="pf" style="width:2%;background:var(--t3)"></div></div>
+            <div class="race-time">~10²⁵ ans</div>
+          </div>
+          <div class="race-box rb-q">
+            <div class="race-tag">QUANTIQUE (SHOR)</div>
+            <div style="font-size:10px;color:rgba(91,127,255,.6);margin-bottom:8px">O((log N)³)</div>
+            <div class="pb"><div class="pf" style="width:95%;background:linear-gradient(90deg,var(--e1),var(--e2))"></div></div>
+            <div class="race-time">~minutes ⚡</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Étapes — Clique pour comprendre</div>
+          <div class="shor-row" id="shor-btns"></div>
+          <div class="shor-detail" id="shor-det"></div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="card-title">Qubits nécessaires: <code>9n+2</code></div>
+          <div id="shor-scale"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="rv">
+      <h4>Exemple: N=15, a=2</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin:14px 0 18px;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+        <button class="tb on" onclick="tab2(this,'ex-setup')">Setup</button>
+        <button class="tb" onclick="tab2(this,'ex-modexp')">MODEXP</button>
+        <button class="tb" onclick="tab2(this,'ex-meas')">Mesure</button>
+        <button class="tb" onclick="tab2(this,'ex-qft2')">QFT⁻¹</button>
+        <button class="tb" onclick="tab2(this,'ex-period')">Période</button>
+        <button class="tb" onclick="tab2(this,'ex-factor')">Factorisation</button>
+      </div>
+      <div class="tp on" id="ex-setup">
+        <div class="cb">n = ⌈log₂(15)⌉ = 4  qubits
+a = 2, gcd(2,15)=1 ✓
+
+|φ₁⟩ = (1/4) <span class="cp">Σₓ₌₀¹⁵</span> |1,x⟩  <span class="cm">← superposition uniforme</span></div>
+      </div>
+      <div class="tp" id="ex-modexp">
+        <div class="cb">|φ₂⟩ = (1/4) Σₓ₌₀¹⁵ |<span class="cp">2ˣ mod 15</span>, x⟩</div>
+        <div style="overflow-x:auto;margin:12px 0">
+          <table><tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th><th style="background:rgba(91,127,255,.1)">4</th><th>5</th><th>6</th><th>7</th><th style="background:rgba(91,127,255,.1)">8</th></tr>
+          <tr><td style="color:var(--t1);font-weight:500">2ˣ mod 15</td><td style="color:var(--e5);font-weight:700">1</td><td>2</td><td>4</td><td>8</td><td style="color:var(--e5);font-weight:700;background:rgba(91,127,255,.06)">1</td><td>2</td><td>4</td><td>8</td><td style="color:var(--e5);font-weight:700;background:rgba(91,127,255,.06)">1</td></tr></table>
+        </div>
+        <div class="ibox ib0"><p>Période visible: <strong>r = 4</strong> — séquence 1,2,4,8 répétée toutes les 4 valeurs!</p></div>
+      </div>
+      <div class="tp" id="ex-meas">
+        <div class="cb">Mesure ŷ=4:
+|φ₃⟩ = (1/2)(|4,2⟩ + |4,6⟩ + |4,10⟩ + |4,14⟩)
+<span class="cm">x ∈ {2,6,10,14} espacés de r=4</span></div>
+      </div>
+      <div class="tp" id="ex-qft2">
+        <div class="cb">|φ₄⟩ = (1/2)(|4,0⟩ + |4,4⟩ + |4,8⟩ + |4,12⟩)
+= multiples de <span class="cp">2ⁿ/r = 16/4 = 4</span> ✓</div>
+      </div>
+      <div class="tp" id="ex-period">
+        <div class="cb">x̂=8, n=4: x̂/2ⁿ = 8/16 = 1/2
+
+Test r=2: 2² = 4 ≢ 1 mod 15  ✗
+Test r=4: 2⁴ = 16 ≡ 1 mod 15 <span class="cok">✓</span>
+→ <span class="cok">r = 4</span></div>
+      </div>
+      <div class="tp" id="ex-factor">
+        <div class="cb"><span class="cok">FACTORISATION:</span>
+
+p = gcd(a^(r/2)-1, N) = gcd(3,15) = <span class="cp">3</span>
+q = gcd(a^(r/2)+1, N) = gcd(5,15) = <span class="cg">5</span>
+
+∴ <span class="cr">N = 15 = 3 × 5</span> ✓ → RSA cassé!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CRYPTO ══════════════════ -->
+<section id="s-crypto">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(63,255,168,.04),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 05 — Cryptographie</div>
+    <h2 class="ch-h">Crypto Classique<br>&amp; <span class="acc">Vulnérabilités</span></h2>
+    <p class="ch-sub">Vue d'ensemble des deux familles cryptographiques et leur résistance aux attaques quantiques.</p>
+
+    <div class="split rv">
+      <div>
+        <div class="card">
+          <div class="card-title">🔑 Cryptographie Symétrique</div>
+          <p>Même clé pour chiffrement/déchiffrement. Sécurité prouvée sous la théorie de l'information.</p>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin:10px 0">
+            <span class="badge b1">DES</span><span class="badge b1">3DES</span><span class="badge b1">AES-128</span><span class="badge b1">AES-256</span>
+          </div>
+          <div class="ibox ib1" style="margin-top:10px">
+            <div class="ibox-t">One-Time Pad (Vernam)</div>
+            <p>Secret théorique parfait si: clé ≥ message, usage unique, vraiment aléatoire (TRNG).</p>
+          </div>
+          <div class="ibox ib3" style="margin-top:8px">
+            <div class="ibox-t">Grover's Algorithm</div>
+            <div class="cb" style="margin-top:6px;font-size:11px">AES-128 → 64 bits eff. ⚠
+AES-256 → 128 bits eff. <span class="cok">✓</span>
+<span class="cm">Solution: doubler les tailles</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">🔐 Cryptographie Asymétrique</div>
+          <p>Clé pub/privée. Sécurité sur problèmes mathématiques difficiles.</p>
+          <div class="ibox ib2" style="margin-top:10px">
+            <div class="ibox-t">⚡ Shor Détruit Tout Ça</div>
+            <p>RSA (factorisation), DH (log discret), ECC (ECDLP) — tous en <strong>temps polynomial</strong>.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <div class="card-title">Vulnérabilités</div>
+          <table>
+            <thead><tr><th>Algorithme</th><th>Problème</th><th>Attaque QC</th></tr></thead>
+            <tbody>
+              <tr><td><strong>RSA-2048</strong></td><td>Factorisation</td><td><span class="badge b3">Shor — P</span></td></tr>
+              <tr><td><strong>DH-2048</strong></td><td>Log. discret</td><td><span class="badge b3">Shor — P</span></td></tr>
+              <tr><td><strong>ECDH-256</strong></td><td>ECDLP</td><td><span class="badge b3">Shor — P</span></td></tr>
+              <tr><td><strong>AES-256</strong></td><td>Symétrique</td><td><span class="badge b4">Grover √N</span></td></tr>
+              <tr><td><strong>Kyber-1024</strong></td><td>MLWE</td><td><span class="badge b5">Résistant ✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="ibox ib0" style="margin-top:20px">
+      <div class="ibox-t">Solutions Post-Quantiques</div>
+      <div class="g2" style="margin-top:10px">
+        <div><p><strong>PQC (Post-Quantum Crypto):</strong> Solutions classiques résistantes aux QC. Basées sur lattices, hash, codes. Remplacent RSA/ECC sans matériel quantique. <strong>Standards NIST 2024: FIPS 203, 204, 205.</strong></p></div>
+        <div><p><strong>QKD (Quantum Key Distribution):</strong> Utilise des systèmes physiques quantiques. <strong>BB84 (IBM, 1984)</strong> — 1er protocole QKD. QRNG + propriétés quantiques = sécurité physique.</p></div>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:20px">
+      <p>"Act now — encrypted data captured today can be decrypted later once quantum computers mature."</p>
+      <div class="quote-a">— NIST Post-Quantum Cryptography Team</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ NIST ══════════════════ -->
+<section id="s-nist">
+  <div class="sbg" style="background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(63,255,168,.05),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitre 06 — Standards</div>
+    <h2 class="ch-h">NIST PQC<br><span class="acc4">Standards 2024</span></h2>
+    <p class="ch-sub">Concours mondial NIST depuis 2016. En <strong>août 2024</strong>, les 3 premiers standards publiés — la transition post-quantique est officielle.</p>
+
+    <div class="card rv" style="margin-bottom:20px">
+      <div class="card-title">Timeline NIST PQC</div>
+      <div class="tl" id="tl-nist"></div>
+    </div>
+
+    <div class="nist-grid rv">
+      <div class="nist-c nc0">
+        <div class="nist-fips" style="color:var(--e1)">FIPS 203 · AOÛT 2024</div>
+        <div class="nist-name" style="color:var(--e1)">ML-KEM</div>
+        <div class="nist-algo">CRYSTALS-Kyber</div>
+        <span class="badge b0" style="margin-bottom:12px">Key Encapsulation</span>
+        <div class="nist-li">Module-Lattice KEM — MLWE</div>
+        <div class="nist-li">Performance multi-plateforme</div>
+        <div class="nist-li">Remplace RSA échange de clés</div>
+        <div class="nist-li">3 niveaux: 512 / 768 / 1024</div>
+        <div class="nist-li">q = 3329, n = 256</div>
+      </div>
+      <div class="nist-c nc1">
+        <div class="nist-fips" style="color:var(--e2)">FIPS 204 · AOÛT 2024</div>
+        <div class="nist-name" style="color:var(--e2)">ML-DSA</div>
+        <div class="nist-algo">CRYSTALS-Dilithium</div>
+        <span class="badge b1" style="margin-bottom:12px">Digital Signature</span>
+        <div class="nist-li">Signature lattice</div>
+        <div class="nist-li">Paradigme Fiat-Shamir</div>
+        <div class="nist-li">Performance + impl. simple</div>
+        <div class="nist-li">Basé Module-LWE/SIS</div>
+      </div>
+      <div class="nist-c nc2">
+        <div class="nist-fips" style="color:var(--e5)">FIPS 205 · AOÛT 2024</div>
+        <div class="nist-name" style="color:var(--e5)">SLH-DSA</div>
+        <div class="nist-algo">SPHINCS+</div>
+        <span class="badge b4" style="margin-bottom:12px">Hash-Based Sig.</span>
+        <div class="nist-li">Stateless — sans état</div>
+        <div class="nist-li">Sécurité conservative</div>
+        <div class="nist-li">Basé uniquement sur hash</div>
+        <div class="nist-li">Résistant si SHA-2/3 OK</div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="rv">
+      <h4>Comparaison Tailles des Clés</h4>
+      <table style="margin-top:12px">
+        <thead><tr><th>Algorithme</th><th>Clé pub.</th><th>Clé priv.</th><th>Chiffré/Sig.</th><th>Quantum</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RSA-2048</strong></td><td>256 B</td><td>256 B</td><td>256 B</td><td><span class="badge b3">Cassé</span></td></tr>
+          <tr><td><strong style="color:var(--e1)">Kyber-512</strong></td><td>800 B</td><td>1632 B</td><td>768 B</td><td><span class="badge b5">✓ L1</span></td></tr>
+          <tr><td><strong style="color:var(--e1)">Kyber-768</strong></td><td>1184 B</td><td>2400 B</td><td>1088 B</td><td><span class="badge b5">✓ L3</span></td></tr>
+          <tr><td><strong style="color:var(--e1)">Kyber-1024</strong></td><td>1568 B</td><td>3168 B</td><td>1568 B</td><td><span class="badge b5">✓ L5</span></td></tr>
+          <tr><td><strong style="color:var(--e2)">Dilithium2</strong></td><td>1312 B</td><td>2528 B</td><td>2420 B</td><td><span class="badge b5">✓ L2</span></td></tr>
+          <tr><td><strong style="color:var(--e5)">SPHINCS+-128f</strong></td><td>32 B</td><td>64 B</td><td>17088 B</td><td><span class="badge b5">✓ L1</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ KYBER ══════════════════ -->
+<section id="s-kyber">
+  <div class="sbg" style="background:radial-gradient(ellipse 70% 60% at 40% 50%,rgba(91,127,255,.08),transparent)"></div>
+  <div class="wrap">
+    <div class="ch-num">Chapitres 07 & 08 — CRYSTALS-Kyber</div>
+    <h2 class="ch-h"><span style="-webkit-text-fill-color:transparent;background:linear-gradient(135deg,var(--e3),var(--e1));-webkit-background-clip:text">CRYSTALS</span>-Kyber<br>ML-KEM, FIPS 203</h2>
+    <p class="ch-sub">Standard KEM basé sur <strong>MLWE (Module Learning With Errors)</strong> sur réseaux de modules. Résistant aux ordinateurs quantiques.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:20px;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+      <button class="tb on" onclick="tab2(this,'k-lattice')">Lattices & MLWE</button>
+      <button class="tb" onclick="tab2(this,'k-params')">Paramètres</button>
+      <button class="tb" onclick="tab2(this,'k-protocol')">Protocole KEM</button>
+      <button class="tb" onclick="tab2(this,'k-ex1')">Exemple Scalaire</button>
+      <button class="tb" onclick="tab2(this,'k-ex2')">Exemple Polynomial</button>
+      <button class="tb" onclick="tab2(this,'k-demo')">Demo Interactive</button>
+    </div>
+
+    <!-- LATTICES -->
+    <div class="tp on" id="k-lattice">
+      <div class="split">
+        <div>
+          <div class="card rv">
+            <div class="card-title">Qu'est-ce qu'un Lattice?</div>
+            <p>Ensemble de points formés par combinaisons entières de vecteurs bases:</p>
+            <div class="cb">L(B) = {Σ aᵢbᵢ : aᵢ ∈ ℤ}</div>
+            <div class="ibox ib2" style="margin-top:10px">
+              <div class="ibox-t">SVP — Shortest Vector Problem</div>
+              <p>Trouver le vecteur le plus court ≠ 0. <strong>NP-hard</strong> même pour QC!</p>
+            </div>
+            <div class="ibox ib2" style="margin-top:8px">
+              <div class="ibox-t">CVP — Closest Vector Problem</div>
+              <p>Trouver le point le plus proche d'une cible. <strong>Base de la sécurité Kyber.</strong></p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card rv rv1">
+            <div class="card-title">Lattice 3D Rotatif — CVP</div>
+            <div class="lat-wrap"><canvas id="lc" style="width:100%;height:100%"></canvas></div>
+            <p style="font-size:11px;color:var(--t3);text-align:center;margin-top:8px">Bleus=lattice · Rouge=target CVP · Jaune=solution</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="g2" style="margin-top:14px">
+        <div class="card rv">
+          <div class="card-title">LWE Sans Bruit — Facile</div>
+          <div class="cb"><span class="cm">A×s = t — résolvable!</span>
+<span class="cok">→ Élimination gaussienne</span></div>
+        </div>
+        <div class="card rv rv1">
+          <div class="card-title">LWE Avec Bruit — Impossible!</div>
+          <div class="cb"><span class="cm">A×s + e = t (mod q)</span>
+e = petit bruit aléatoire
+<span class="cr">→ NP-hard même pour QC!</span></div>
+        </div>
+      </div>
+      <div class="card rv" style="margin-top:14px">
+        <div class="card-title">MLWE — Version Polynomiale</div>
+        <div class="cb">Anneau: Zq[X]/(Xⁿ+1)  q=3329, n=256
+<span class="cm">Réduction: Xⁿ = -1</span>
+
+A(X) ∈ M^(k×k) polynômes
+s(X) petits coefficients   <span class="cm">← secret</span>
+e(X) petit bruit           <span class="cm">← erreur</span>
+t(X) = A(X)·s(X) + e(X)   <span class="cm">← clé pub</span></div>
+      </div>
+    </div>
+
+    <!-- PARAMS -->
+    <div class="tp" id="k-params">
+      <div class="card rv">
+        <div class="card-title">Paramètres Kyber</div>
+        <table>
+          <thead><tr><th>Variante</th><th>n</th><th>k</th><th>q</th><th>η₁</th><th>η₂</th><th>pk</th><th>sk</th><th>ct</th><th>Niveau</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--e1)">Kyber-512</strong></td><td>256</td><td>2</td><td>3329</td><td>3</td><td>2</td><td>800 B</td><td>1632 B</td><td>768 B</td><td><span class="badge b0">L1 ~AES128</span></td></tr>
+            <tr><td><strong style="color:var(--e2)">Kyber-768</strong></td><td>256</td><td>3</td><td>3329</td><td>2</td><td>2</td><td>1184 B</td><td>2400 B</td><td>1088 B</td><td><span class="badge b1">L3 ~AES192</span></td></tr>
+            <tr><td><strong style="color:var(--e5)">Kyber-1024</strong></td><td>256</td><td>4</td><td>3329</td><td>2</td><td>2</td><td>1568 B</td><td>3168 B</td><td>1568 B</td><td><span class="badge b4">L5 ~AES256</span></td></tr>
+          </tbody>
+        </table>
+        <div class="ibox ib0" style="margin-top:12px">
+          <div class="ibox-t">Pourquoi q=3329?</div>
+          <p>3329 est premier et 3329 ≡ 1 (mod 256) — permet le <strong>NTT (Number Theoretic Transform)</strong> pour multiplier les polynômes en O(n log n).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROTOCOL -->
+    <div class="tp" id="k-protocol">
+      <div class="split">
+        <div>
+          <div class="card rv">
+            <div class="card-title">Protocole KEM</div>
+            <div class="kflow">
+              <div class="kf-step"><div class="kf-dot kd-a">A</div><div><div class="kf-tt">Alice — KeyGen</div><div class="kf-dd">Génère A, s, e</div><div class="kf-eq">t = A×s + e &nbsp;&nbsp; pk=(A,t), sk=s</div></div></div>
+              <div class="kf-line"></div>
+              <div class="kf-step"><div class="kf-dot kd-n">↓</div><div><div class="kf-tt">Alice publie pk=(A,t)</div><div class="kf-dd">s reste secret</div></div></div>
+              <div class="kf-line"></div>
+              <div class="kf-step"><div class="kf-dot kd-b">B</div><div><div class="kf-tt">Bob — Encapsulation</div><div class="kf-dd">Encode m, tire r, e₁, e₂</div><div class="kf-eq">u=Aᵀr+e₁ &nbsp; v=tᵀr+e₂+enc(m)</div></div></div>
+              <div class="kf-line"></div>
+              <div class="kf-step"><div class="kf-dot kd-n">↓</div><div><div class="kf-tt">Bob envoie c=(u,v)</div></div></div>
+              <div class="kf-line"></div>
+              <div class="kf-step"><div class="kf-dot kd-a">A</div><div><div class="kf-tt">Alice — Decapsulation</div><div class="kf-eq">m' = decode(v - sᵀ·u) = m ✓</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card rv rv1">
+            <div class="card-title">Correctness Proof</div>
+            <div class="cb">v - sᵀ·u
+= (tᵀr+e₂+enc(m)) - sᵀ(Aᵀr+e₁)
+= sᵀAᵀr + <span class="cr">eᵀr</span> + e₂ + enc(m)
+  - sᵀAᵀr - <span class="cr">sᵀe₁</span>
+= enc(m) + <span class="cr">[petit bruit]</span>
+
+Si bruit petit → <span class="cok">décodage correct!</span></div>
+            <div class="ibox ib1" style="margin-top:12px">
+              <div class="ibox-t">Encode / Decode</div>
+              <div class="cb" style="margin-top:6px;font-size:11px">encode(0) = 0
+encode(1) = ⌊q/2⌋ = 1664
+
+decode: xᵢ proche 0 → bit=0
+        xᵢ proche q/2 → bit=1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EX1 -->
+    <div class="tp" id="k-ex1">
+      <div class="card rv">
+        <div class="card-title">Exemple Scalaire (k=2, n=1, q=17)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin:14px 0;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+          <button class="tb on" onclick="tab2(this,'e1kg')">KeyGen</button>
+          <button class="tb" onclick="tab2(this,'e1enc')">Encap</button>
+          <button class="tb" onclick="tab2(this,'e1dec')">Decap</button>
+        </div>
+        <div class="tp on" id="e1kg">
+          <div class="cb">A=[[6,5],[3,2]]  s=[1,2]ᵀ  e=[1,1]ᵀ
+
+As = [6+10, 3+4]ᵀ = [16,7]ᵀ
+t  = As+e = [17,8]ᵀ = <span class="cp">[0,8]ᵀ</span> (mod 17)
+
+pk = (A, [0,8]ᵀ)
+sk = s = [1,2]ᵀ  <span class="cm">← SECRET!</span></div>
+        </div>
+        <div class="tp" id="e1enc">
+          <div class="cb">m=1, r=[2,1]ᵀ, e₁=[1,0]ᵀ, e₂=1
+
+encode(1) = ⌊17/2⌋ = <span class="cp">8</span>
+
+u = Aᵀr+e₁ = [15,12]ᵀ+[1,0]ᵀ = <span class="cp">[16,12]ᵀ</span>
+v = tᵀr+e₂+8 = 8+1+8 = 17 = <span class="cp">0</span> (mod 17)
+
+c = (u,v) = ([16,12]ᵀ, 0)</div>
+        </div>
+        <div class="tp" id="e1dec">
+          <div class="cb">sᵀu = [1,2]×[16,12]ᵀ = 40
+40 mod 17 = 6
+
+v - sᵀu = 0-6 = -6 = <span class="cp">11</span> (mod 17)
+
+dist(11,0)=11  dist(11,8)=<span class="cg">3</span> ← proche q/2!
+→ <span class="cok">bit = 1 ✓</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EX2 -->
+    <div class="tp" id="k-ex2">
+      <div class="card rv">
+        <div class="card-title">Exemple Polynomial (k=2, n=4, q=17)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin:14px 0;background:rgba(0,0,0,.3);padding:4px;border-radius:var(--r);border:1px solid var(--line);width:fit-content">
+          <button class="tb on" onclick="tab2(this,'e2setup')">Setup</button>
+          <button class="tb" onclick="tab2(this,'e2kg')">KeyGen</button>
+          <button class="tb" onclick="tab2(this,'e2enc')">Encap</button>
+          <button class="tb" onclick="tab2(this,'e2dec')">Decap</button>
+        </div>
+        <div class="tp on" id="e2setup">
+          <div class="cb">Anneau: Z₁₇[X]/(X⁴+1)
+Règle: X⁴=-1, X⁵=-X, X⁶=-X², ...
+
+s = [-X³-X²+X, -X³-X]ᵀ   <span class="cm">← petits</span>
+e = [X², X²-X]ᵀ           <span class="cm">← bruit</span>
+
+m=11=(1011)₂ → m_b = X³+X+1
+encode(m) = 9X³+9X+9</div>
+        </div>
+        <div class="tp" id="e2kg">
+          <div class="cb">t₀ = A[0,:]·s = <span class="cp">16X³+15X²+7</span>
+t₁ = A[1,:]·s = <span class="cp">10X³+12X²+11X+6</span>
+<span class="cm">(après réductions mod (17, X⁴+1))</span></div>
+        </div>
+        <div class="tp" id="e2enc">
+          <div class="cb">u = <span class="cp">[11X³+11X²+10X+3, 4X³+4X²+13X+11]ᵀ</span>
+v = <span class="cp">7X³+6X²+8X+15</span></div>
+        </div>
+        <div class="tp" id="e2dec">
+          <div class="cb">m_n = v - sᵀu = <span class="cp">9X²+X+10</span>
+
+Décodage (seuil q/4≈4.25):
+X³: 0  → dist 0=0, dist 8=8 → <span class="cok">bit=0 ✓</span>
+X²: 9  → dist 0=9, dist 8=1 → <span class="cok">bit=1 ✓</span>
+X : 1  → dist 0=1, dist 8=7 → <span class="cok">bit=0 ✓</span>
+X⁰: 10 → dist 0=7, dist 8=2 → <span class="cok">bit=1 ✓</span>
+
+→ m=(1011)₂ = <span class="cok">11 ✓</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="tp" id="k-demo">
+      <div class="g2">
+        <div class="card rv">
+          <div class="card-title">Encode/Decode avec Bruit</div>
+          <div style="display:flex;gap:8px;margin:14px 0">
+            <button onclick="enc(0)" style="padding:8px 20px;border-radius:8px;border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);color:var(--e2);font-family:var(--f-mono);font-size:12px;cursor:pointer">m = 0</button>
+            <button onclick="enc(1)" style="padding:8px 20px;border-radius:8px;border:1px solid rgba(91,127,255,.3);background:rgba(91,127,255,.06);color:var(--e1);font-family:var(--f-mono);font-size:12px;cursor:pointer">m = 1</button>
+          </div>
+          <div id="enc-r" style="font-family:var(--f-mono);font-size:15px;color:var(--e1);min-height:22px;margin-bottom:8px"></div>
+          <div class="enc-axis" id="enc-ax">
+            <div id="enc-mk" class="enc-marker" style="left:0%;background:var(--e2)"></div>
+            <div class="enc-axis-lbl" style="left:4px">0</div>
+            <div class="enc-axis-lbl" style="left:50%;transform:translateX(-50%)">q/2=1664</div>
+            <div class="enc-axis-lbl" style="right:4px">q</div>
+          </div>
+          <hr>
+          <div class="card-title" style="margin-bottom:8px">Simuler le bruit</div>
+          <div class="sl-row">
+            <label>Bruit σ:</label>
+            <input type="range" min="0" max="600" value="50" id="nsl" oninput="updNoise(this.value)">
+            <span class="sl-val" id="nval">σ=50</span>
+          </div>
+          <div id="nres" style="font-family:var(--f-mono);font-size:11px;color:var(--t2);padding:12px;background:rgba(0,0,0,.3);border-radius:8px;margin-top:8px;line-height:2">Sélectionne un bit...</div>
+        </div>
+        <div class="card rv rv1">
+          <div class="card-title">Résumé Mathématique</div>
+          <div class="ibox ib0">
+            <div class="ibox-t">Sécurité</div>
+            <p>Basée sur <strong>MLWE</strong> — trouver s dans A×s+e=t est NP-hard même pour QC sur lattices de modules.</p>
+          </div>
+          <div class="ibox ib1" style="margin-top:10px">
+            <div class="ibox-t">Efficacité NTT</div>
+            <p><strong>Number Theoretic Transform</strong> — multiplication polynomiale en <strong>O(n log n)</strong> au lieu de O(n²).</p>
+          </div>
+          <div class="ibox ib3" style="margin-top:10px">
+            <div class="ibox-t">Pourquoi Xⁿ+1?</div>
+            <p>n=256 → factorisation NTT optimale, arithmétique efficace et sécurité maximale.</p>
+          </div>
+          <div class="ibox ib4" style="margin-top:10px">
+            <div class="ibox-t">Paramètre η</div>
+            <p>Coefficients de s,e tirés d'une <strong>distribution binomiale centrée Bη</strong> — petits mais sécurisés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ END ══════════════════ -->
+<section id="s-end" style="min-height:70vh">
+  <div class="sbg" style="background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(91,127,255,.1),transparent)"></div>
+  <div class="wrap" style="text-align:center">
+    <div class="ch-num" style="justify-content:center">Fin du Guide</div>
+    <h2 class="ch-h rv" style="letter-spacing:-3px">Tu as tout ce qu'il faut<br><span class="acc">pour ton 20/20 🎯</span></h2>
+    <p class="ch-sub rv" style="margin:0 auto 40px;max-width:500px">Tous les chapitres, toutes les formules, tous les exemples. Révise, comprends, réussis.</p>
+    <div class="end-grid rv">
+      <div class="end-c" onclick="goTo('s-qc')"><div class="end-ico">🖥️</div><div class="end-tt">Quantum Computing</div><div class="end-ss">Bits, Moore, Histoire</div></div>
+      <div class="end-c" onclick="goTo('s-qubits')"><div class="end-ico">⚛️</div><div class="end-tt">Qubits & Maths</div><div class="end-ss">Dirac, Bloch, Entanglement</div></div>
+      <div class="end-c" onclick="goTo('s-gates')"><div class="end-ico">⚡</div><div class="end-tt">Quantum Gates</div><div class="end-ss">H, X, CNOT, QFT⁻¹</div></div>
+      <div class="end-c" onclick="goTo('s-shor')"><div class="end-ico">🔓</div><div class="end-tt">Shor's Algo</div><div class="end-ss">RSA cassé, MODEXP</div></div>
+      <div class="end-c" onclick="goTo('s-nist')"><div class="end-ico">🏛️</div><div class="end-tt">NIST Standards</div><div class="end-ss">FIPS 203, 204, 205</div></div>
+      <div class="end-c" onclick="goTo('s-kyber')"><div class="end-ico">💎</div><div class="end-tt">CRYSTALS-Kyber</div><div class="end-ss">MLWE, KEM, Exemples</div></div>
+    </div>
+    <div class="card rv" style="max-width:440px;margin:28px auto 0;text-align:left">
+      <div class="card-title">Développé par</div>
+      <p style="font-family:var(--f-display);font-size:24px;font-weight:800;color:var(--e1);margin:10px 0;letter-spacing:-1px">TBINI Mustapha Amin</p>
+      <hr>
+      <p style="font-size:12px;color:var(--t3)">D'après les 4 PDFs du cours: Introduction, Chapter 1 (QC Fundamentals), Chapter 2 (Shor's Algorithm), Chapter 3 (CRYSTALS-Kyber).</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal" onclick="if(event.target===this)mClose()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="mClose()">×</button>
+    <div id="modal-ct"></div>
+  </div>
+</div>
+
+<script>
+// ──── THEME ────
+const THEME_KEY='pqc-theme';
+function syncThemeUI(theme){
+  const icon=document.getElementById('themeIcon');
+  const label=document.getElementById('themeLabel');
+  if(icon)icon.textContent=theme==='light'?'🌙':'☀';
+  if(label)label.textContent=theme==='light'?'SOMBRE':'CLAIR';
+}
+function setTheme(theme){
+  const next=theme==='light'?'light':'dark';
+  document.body.dataset.theme=next;
+  localStorage.setItem(THEME_KEY,next);
+  syncThemeUI(next);
+}
+function initTheme(){
+  const saved=localStorage.getItem(THEME_KEY);
+  const prefersLight=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;
+  setTheme(saved||(prefersLight?'light':'dark'));
+}
+window.toggleTheme=function(){
+  setTheme(document.body.dataset.theme==='light'?'dark':'light');
+};
+initTheme();
+
+// ──── CURSOR ────
+const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function ac(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ac)})();
+
+// ──── LOADER ────
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),1600));
+
+// ──── BG CANVAS ────
+const bgc=document.getElementById('bgc');
+const bx=bgc.getContext('2d');
+const stars=Array.from({length:280},()=>({x:Math.random(),y:Math.random(),r:.25+Math.random()*.8,a:Math.random(),da:(.001+Math.random()*.003)*(Math.random()<.5?1:-1)}));
+function resB(){bgc.width=window.innerWidth;bgc.height=window.innerHeight}
+resB();window.addEventListener('resize',resB);
+(function aS(){
+  bx.clearRect(0,0,bgc.width,bgc.height);
+  stars.forEach(s=>{s.a+=s.da;if(s.a<0||s.a>1)s.da*=-1;bx.beginPath();bx.arc(s.x*bgc.width,s.y*bgc.height,s.r,0,Math.PI*2);bx.fillStyle=`rgba(160,160,255,${s.a*.45})`;bx.fill()});
+  requestAnimationFrame(aS);
+})();
+
+// ──── NAV & SCROLL ────
+const secs=['hero','s-qc','s-qubits','s-gates','s-shor','s-crypto','s-nist','s-kyber','s-end'];
+function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('sprog').style.width=(h>0?window.scrollY/h*100:0)+'%';
+  document.getElementById('shint').classList.toggle('gone',window.scrollY>80);
+  const nls=document.querySelectorAll('nav .nl');
+  secs.forEach((id,i)=>{
+    const el=document.getElementById(id);if(!el)return;
+    const r=el.getBoundingClientRect();
+    if(r.top>-80&&r.top<window.innerHeight*.6&&nls[i-1])
+      nls.forEach((l,j)=>l.classList.toggle('on',j===i-1));
+  });
+  document.querySelectorAll('.rv').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight*.88)el.classList.add('vis');
+  });
+});
+
+// ──── REVEAL ────
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// ──── TABS (shared system) ────
+function tab2(btn,id){
+  const grp=btn.closest('[style*="flex"]')||btn.parentElement;
+  grp.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const section=btn.closest('section')||document.body;
+  section.querySelectorAll('.tp').forEach(p=>p.classList.remove('on'));
+  const t=document.getElementById(id);
+  if(t)t.classList.add('on');
+}
+
+// ──── TIMELINES ────
+const tlQC=[
+  {y:'1900',e:"Planck — Quantum Hypothesis",d:"Max Planck propose l'énergie quantifiée. Naissance de la physique quantique."},
+  {y:'1935',e:'EPR Paradox',d:"Einstein-Podolsky-Rosen: l'entanglement théorisé. 'Spooky action at a distance.'"},
+  {y:'1964',e:"Bell's Inequality",d:"Bell dérive une inégalité pour tester l'entanglement. Confirmé expérimentalement."},
+  {y:'1981',e:"Feynman's Proposal",d:"Premier QC proposé: 'Nature n'est pas classique, utilisez un QC pour la simuler.'"},
+  {y:'1984',e:'BB84 — Premier QKD',d:"Bennett & Brassard: sécurité garantie par les lois physiques, pas la complexité."},
+  {y:'1994',e:"Shor's Algorithm",d:"Factorisation en temps polynomial. RSA/DH/ECC potentiellement cassés."},
+  {y:'1996',e:"Grover's Algorithm",d:"Recherche en O(√N). Réduit sécurité symétriques de n à n/2 bits effectifs."},
+  {y:'2016',e:'NIST PQC Contest',d:"82 soumissions mondiales. 8 ans de compétition pour standardiser PQC."},
+  {y:'2019',e:'Google Quantum Supremacy',d:"Sycamore 53 qubits: 200s vs 10,000 ans pour Summit."},
+  {y:'2024',e:'FIPS 203/204/205 + Willow',d:"Standards NIST publiés. Google Willow 105 qubits: ~5 min vs 10²⁵ ans."}
+];
+const tlNIST=[
+  {y:'2016',e:'Appel à Propositions',d:"NIST annonce critères et lance le concours international."},
+  {y:'2017',e:'69 Candidats Round 1',d:"82 soumissions → 69 sélectionnés pour le 1er round."},
+  {y:'2019',e:'26 Candidats Round 2',d:"Sélection par cryptanalyse mondiale."},
+  {y:'2020',e:'7 Finalistes',d:"3ème round: 7 finalistes + 8 alternates."},
+  {y:'2022',e:'Annonce Sélection',d:"CRYSTALS-Kyber, Dilithium, SPHINCS+ sélectionnés."},
+  {y:'2024 août',e:'🎉 FIPS 203, 204, 205',d:"Publication officielle. La transition post-quantique est officielle!"}
+];
+function buildTL(id,data){
+  const el=document.getElementById(id);if(!el)return;
+  data.forEach(t=>{
+    const d=document.createElement('div');d.className='tl-item';
+    d.innerHTML=`<div class="tl-y">${t.y}</div><div class="tl-e">${t.e}</div><div class="tl-d">${t.d}</div>`;
+    d.onclick=()=>d.classList.toggle('open');el.appendChild(d);
+  });
+}
+buildTL('tl-qc',tlQC);buildTL('tl-nist',tlNIST);
+
+// ──── GATES 1Q ────
+const g1qData={
+  I:{n:'Identity Gate',mat:'[[1,0],[0,1]]',eff:'|0⟩→|0⟩, |1⟩→|1⟩',desc:'Ne fait rien. Placeholder théorique.',c:'var(--t3)'},
+  X:{n:'Pauli-X (NOT)',mat:'[[0,1],[1,0]]',eff:'|0⟩→|1⟩, |1⟩→|0⟩',desc:"Le NOT quantique. Flip bit. Rotation π autour axe X de Bloch.",c:'var(--e2)'},
+  Y:{n:'Pauli-Y',mat:'[[0,-i],[i,0]]',eff:'|0⟩→i|1⟩, |1⟩→-i|0⟩',desc:"Combine flip bit + flip phase. Phases complexes.",c:'var(--e4)'},
+  Z:{n:'Pauli-Z',mat:'[[1,0],[0,-1]]',eff:'|0⟩→|0⟩, |1⟩→-|1⟩',desc:"Phase flip. Invisible sans interférence.",c:'var(--e5)'},
+  H:{n:'Hadamard — LA plus importante!',mat:'(1/√2)[[1,1],[1,-1]]',eff:'|0⟩→|+⟩=(|0⟩+|1⟩)/√2\n|1⟩→|−⟩=(|0⟩-|1⟩)/√2',desc:"Crée la superposition parfaite 50/50. Indispensable pour tout algo quantique.",c:'var(--e1)'},
+  P:{n:'Phase Gate P(θ)',mat:'[[1,0],[0,e^(iθ)]]',eff:'|0⟩→|0⟩, |1⟩→e^(iθ)|1⟩\nP(π)=Z, P(π/2)=S, P(π/4)=T',desc:"Ajoute une phase à |1⟩. Essentielle pour QFT.",c:'var(--e6)'},
+  S:{n:'S, S†, T, T†',mat:'S=P(π/2), T=P(π/4)',eff:'S: |1⟩→i|1⟩\nT: |1⟩→e^(iπ/4)|1⟩',desc:"Phases quart/demi-tour. Essentielles dans QFT⁻¹ de Shor.",c:'var(--e6)'},
+  U:{n:'U(θ,φ,λ) — La plus générale',mat:'[[cos(θ/2), -e^(iλ)sin(θ/2)],[e^(iφ)sin(θ/2), e^(i(φ+λ))cos(θ/2)]]',eff:'X=U(π,0,π), H=U(π/2,0,π)',desc:"Toute gate 1-qubit est un cas spécial de U(θ,φ,λ).",c:'var(--e4)'}
+};
+window.g1q=function(btn,g){
+  document.querySelectorAll('#gsel1q .g-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  const d=g1qData[g];
+  document.getElementById('g1q-out').innerHTML=`
+    <div class="g2">
+      <div class="card" style="border-color:${d.c}33">
+        <div class="card-title" style="color:${d.c}">${d.n}</div>
+        <div class="cb">${d.mat}</div>
+        <div class="cb" style="margin-top:8px">${d.eff}</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Intuition</div>
+        <p style="margin-top:8px">${d.desc}</p>
+      </div>
+    </div>`;
+};
+g1q(document.querySelector('#gsel1q .g-btn'),'I');
+
+// ──── GATES 2Q ────
+const g2qData={
+  CNOT:{n:'CNOT (Controlled-NOT)',mat:'block_diag(I₂, X₂)\n[1,0,0,0;0,1,0,0;0,0,0,1;0,0,1,0]',eff:'|x,y⟩→|x,x⊕y⟩\n|10⟩→|11⟩, |11⟩→|10⟩',desc:"Gate 2-qubits fondamentale. Crée l'entanglement.",c:'var(--e4)'},
+  CZ:{n:'Controlled-Z',mat:'diag(1,1,1,-1)',eff:'|11⟩→-|11⟩ (phase flip)',desc:"Phase flip conditionnel sur |11⟩. Symétrique.",c:'var(--e5)'},
+  SWAP:{n:'SWAP',mat:'[1,0,0,0;0,0,1,0;0,1,0,0;0,0,0,1]',eff:'|ψ₀,ψ₁⟩→|ψ₁,ψ₀⟩',desc:"Échange deux qubits. Utilisé dans QFT (bit reversal).",c:'var(--e6)'},
+  CH:{n:'CH — Controlled-H (QUESTION DE COURS!)',mat:'block_diag(I₂, H₂)',eff:'|0,y⟩→|0,y⟩ (rien)\n|1,y⟩→|1,H|y⟩ (Hadamard!)',desc:"U_CH = block_diag(I₂, H₂) — on remplace X par H dans le bloc conditionnel. LA réponse attendue au cours.",c:'var(--e1)'}
+};
+window.g2q=function(btn,g){
+  document.querySelectorAll('#gsel2q .g-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  const d=g2qData[g];
+  document.getElementById('g2q-out').innerHTML=`
+    <div class="g2">
+      <div class="card" style="border-color:${d.c}33">
+        <div class="card-title" style="color:${d.c}">${d.n}</div>
+        <div class="cb">${d.mat}</div>
+        <div class="cb" style="margin-top:8px">${d.eff}</div>
+      </div>
+      <div class="card"><div class="card-title">Intuition</div><p style="margin-top:8px">${d.desc}</p></div>
+    </div>`;
+};
+g2q(document.querySelector('#gsel2q .g-btn'),'CNOT');
+
+// ──── WAVE CANVAS ────
+const wcEl=document.getElementById('wc');
+if(wcEl){
+  const wctx=wcEl.getContext('2d');let wt=0,wCollapsed=false,wCA=0;
+  function resWC(){wcEl.width=wcEl.offsetWidth;wcEl.height=wcEl.offsetHeight}
+  resWC();new ResizeObserver(resWC).observe(wcEl);
+  (function drawWC(){
+    resWC();const W=wcEl.width,H=wcEl.height,cy=H/2;
+    wctx.clearRect(0,0,W,H);
+    if(wCollapsed){
+      wCA++;
+      const x=Math.random()<.5?W*.3:W*.7;
+      const col=x<W/2?'rgba(0,212,255,':'rgba(255,79,123,';
+      wctx.strokeStyle=col+'0.9)';wctx.lineWidth=2;
+      wctx.beginPath();wctx.moveTo(x,15);wctx.lineTo(x,H-15);wctx.stroke();
+      wctx.fillStyle=col+'0.9)';wctx.font='bold 20px JetBrains Mono,monospace';
+      wctx.textAlign='center';wctx.textBaseline='middle';
+      wctx.fillText(x<W/2?'|0⟩':'|1⟩',x,cy);
+      if(wCA>65){wCollapsed=false;wCA=0}
+    } else {
+      for(let w=0;w<3;w++){
+        const amp=20-w*4,freq=.013+w*.004,ph=wt*.022+w*1.2;
+        wctx.beginPath();
+        for(let x=0;x<W;x++){const y=cy+Math.sin(x*freq+ph)*amp+Math.sin(x*freq*.55+ph*1.3)*amp*.4;x===0?wctx.moveTo(x,y):wctx.lineTo(x,y)}
+        wctx.strokeStyle=`hsla(${200+w*50},80%,68%,${.55-w*.12})`;wctx.lineWidth=1.5-w*.3;wctx.stroke();
+      }
+    }
+    wt++;requestAnimationFrame(drawWC);
+  })();
+  window.wCollapse=()=>{wCollapsed=true;wCA=0};
+}
+
+// ──── ENTANGLE CANVAS ────
+const ecEl=document.getElementById('ec');
+if(ecEl){
+  const ectx=ecEl.getContext('2d');let et=0;
+  function resEC(){ecEl.width=ecEl.offsetWidth;ecEl.height=ecEl.offsetHeight}
+  resEC();new ResizeObserver(resEC).observe(ecEl);
+  (function drawEC(){
+    resEC();const W=ecEl.width,H=ecEl.height,r1=W*.28,r2=W*.72,cy=H/2,rad=22;
+    ectx.clearRect(0,0,W,H);
+    for(let i=0;i<7;i++){
+      const ph=et*.018+i*(Math.PI*2/7);
+      ectx.beginPath();ectx.moveTo(r1+rad,cy+Math.sin(ph)*10);
+      ectx.quadraticCurveTo(W/2,cy+Math.sin(ph+1.5)*22,r2-rad,cy-Math.sin(ph)*10);
+      ectx.strokeStyle=`rgba(91,127,255,${Math.abs(Math.sin(ph))*.3+.07})`;ectx.lineWidth=.7;ectx.stroke();
+    }
+    [[r1,'rgba(0,212,255,','q₀'],[r2,'rgba(255,79,123,','q₁']].forEach(([x,col,lbl])=>{
+      ectx.beginPath();ectx.arc(x,cy,rad,0,Math.PI*2);
+      ectx.fillStyle=col+'0.08)';ectx.fill();
+      ectx.strokeStyle=col+'0.7)';ectx.lineWidth=1.5;ectx.stroke();
+      ectx.fillStyle=col+'0.9)';ectx.font='11px JetBrains Mono,monospace';
+      ectx.textAlign='center';ectx.textBaseline='middle';ectx.fillText(lbl,x,cy);
+    });
+    et++;requestAnimationFrame(drawEC);
+  })();
+}
+
+// ──── LATTICE CANVAS ────
+const lcEl=document.getElementById('lc');
+if(lcEl){
+  const lctx=lcEl.getContext('2d');let lt=0;
+  function resLC(){lcEl.width=lcEl.offsetWidth;lcEl.height=lcEl.offsetHeight}
+  resLC();new ResizeObserver(resLC).observe(lcEl);
+  (function drawLC(){
+    resLC();const W=lcEl.width,H=lcEl.height,cx=W/2,cy=H/2,rot=lt*.007;
+    lctx.clearRect(0,0,W,H);
+    const pts=[];
+    for(let i=-3;i<=3;i++)for(let j=-3;j<=3;j++){
+      const x3=i*34+j*17,y3=j*26;
+      const rx=x3*Math.cos(rot)-y3*.28*Math.sin(rot);
+      const ry=x3*Math.sin(rot)*.28+y3*Math.cos(rot*.55);
+      pts.push({sx:cx+rx,sy:cy+ry,d:1+.38*Math.sin(rot+i*.5+j*.3),i,j});
+    }
+    for(let i=-3;i<3;i++)for(let j=-3;j<3;j++){
+      const p=pts.find(p=>p.i===i&&p.j===j),pr=pts.find(p=>p.i===i+1&&p.j===j),pd=pts.find(p=>p.i===i&&p.j===j+1);
+      if(p&&pr){lctx.beginPath();lctx.moveTo(p.sx,p.sy);lctx.lineTo(pr.sx,pr.sy);lctx.strokeStyle='rgba(91,127,255,0.09)';lctx.lineWidth=.5;lctx.stroke()}
+      if(p&&pd){lctx.beginPath();lctx.moveTo(p.sx,p.sy);lctx.lineTo(pd.sx,pd.sy);lctx.strokeStyle='rgba(91,127,255,0.09)';lctx.lineWidth=.5;lctx.stroke()}
+    }
+    pts.forEach(p=>{lctx.beginPath();lctx.arc(p.sx,p.sy,2*p.d,0,Math.PI*2);lctx.fillStyle=`rgba(91,127,255,${.4*p.d})`;lctx.fill()});
+    const tx=cx+Math.cos(lt*.016)*50,ty=cy+Math.sin(lt*.012)*28;
+    lctx.beginPath();lctx.arc(tx,ty,5,0,Math.PI*2);lctx.fillStyle='rgba(255,79,123,0.9)';lctx.fill();
+    const cl=pts.reduce((a,b)=>Math.hypot(b.sx-tx,b.sy-ty)<Math.hypot(a.sx-tx,a.sy-ty)?b:a);
+    lctx.beginPath();lctx.moveTo(tx,ty);lctx.lineTo(cl.sx,cl.sy);
+    lctx.strokeStyle='rgba(255,219,79,0.55)';lctx.lineWidth=1.5;lctx.setLineDash([3,3]);lctx.stroke();lctx.setLineDash([]);
+    lctx.beginPath();lctx.arc(cl.sx,cl.sy,4.5,0,Math.PI*2);lctx.fillStyle='rgba(255,219,79,0.9)';lctx.fill();
+    lt++;requestAnimationFrame(drawLC);
+  })();
+}
+
+// ──── QUBIT DEMO ────
+function buildQD(){
+  const el=document.getElementById('qdemo');if(!el||el.children.length)return;
+  for(let i=0;i<5;i++){
+    const b=document.createElement('div');
+    b.style.cssText='width:60px;height:60px;border-radius:10px;border:1px solid rgba(91,127,255,0.18);background:rgba(91,127,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;gap:3px';
+    b.dataset.s='s';
+    b.innerHTML='<span style="font-size:18px">⚛</span><span style="font-family:var(--f-mono);font-size:9px;color:var(--t3)">|ψ⟩</span>';
+    b.onclick=()=>measQ(b,i);
+    el.appendChild(b);
+  }
+}
+function measQ(b,i){
+  if(b.dataset.s!=='s')return;b.dataset.s='m';
+  const r=Math.random()<.5;
+  b.style.background=r?'rgba(91,127,255,0.12)':'rgba(0,212,255,0.08)';
+  b.style.borderColor=r?'rgba(91,127,255,0.45)':'rgba(0,212,255,0.35)';
+  b.innerHTML=`<span style="font-family:var(--f-mono);font-size:24px;font-weight:700;color:${r?'var(--e1)':'var(--e2)'}">${r?1:0}</span>`;
+  document.getElementById('qmsg').textContent=`q[${i}]→|${r?1:0}⟩ prob=|${r?'β':'α'}|²=${(Math.random()*.4+.3).toFixed(3)}`;
+}
+window.qReset=()=>{document.getElementById('qdemo').innerHTML='';buildQD();document.getElementById('qmsg').textContent=''};
+window.qMeasAll=()=>document.querySelectorAll('#qdemo div').forEach((b,i)=>{if(b.dataset&&b.dataset.s==='s')setTimeout(()=>measQ(b,i),i*180)});
+buildQD();
+
+window.measViz=function(){
+  const r=document.getElementById('qmr'),v=Math.random()<.5;
+  r.style.opacity=0;
+  setTimeout(()=>{r.textContent=v?'⚡ |1⟩ — collapsé!':'⚡ |0⟩ — collapsé!';r.style.color=v?'var(--e4)':'var(--e2)';r.style.opacity=1;setTimeout(()=>{r.style.opacity=0},2200)},150);
+};
+
+// ──── SHOR STEPS ────
+const shorSteps=[
+  {ico:'🎲',tag:'CLASSIQUE',n:'Choisir a',qb:false,det:'<strong>Choisir a aléatoire</strong> avec gcd(a,N)=1. Ex: N=15, a=2, gcd(2,15)=1 ✓<br><br>Si gcd>1 → facteur trivial trouvé!'},
+  {ico:'🌀',tag:'QUANTIQUE',n:'Superposition',qb:true,det:'<strong>H^⊗ⁿ|0⟩ = (1/√N)Σ|x⟩</strong><br>Superposition uniforme de 0 à 2ⁿ-1. Le speedup quantique commence ici.'},
+  {ico:'⚙️',tag:'QUANTIQUE',n:'MODEXP',qb:true,det:'<strong>|x⟩|0⟩ → |x⟩|aˣ mod N⟩</strong><br>Calcule aˣ mod N pour TOUS les x simultanément. Périodicité encodée dans les amplitudes.'},
+  {ico:'📏',tag:'QUANTIQUE',n:'Mesure |y⟩',qb:true,det:'<strong>Collapse vers ŷ = aˣ⁰ mod N.</strong><br>Reste: x₀, x₀+r, x₀+2r, ... Suite arithmétique de période r.'},
+  {ico:'🔊',tag:'QUANTIQUE',n:'QFT⁻¹',qb:true,det:'<strong>Transforme périodicité en pics</strong> aux multiples de 2ⁿ/r. O(n²) vs O(n·2ⁿ) FFT classique → speedup exponentiel!'},
+  {ico:'🧮',tag:'CLASSIQUE',n:'Extraire r',qb:false,det:'<strong>Fractions continues:</strong> x̂/2ⁿ ≈ s/r → trouver r. Vérifier: aʳ≡1 (mod N), r pair, a^(r/2)≢-1.'},
+  {ico:'✅',tag:'CLASSIQUE',n:'Factoriser',qb:false,det:'<strong>p=gcd(a^(r/2)-1,N), q=gcd(a^(r/2)+1,N)</strong><br>Pour N=15,r=4,a=2: p=3, q=5. RSA cassé!'}
+];
+const sbEl=document.getElementById('shor-btns'),sdEl=document.getElementById('shor-det');
+if(sbEl){
+  shorSteps.forEach((s,i)=>{
+    const b=document.createElement('div');
+    b.className='shor-btn'+(s.qb?' qb':'');
+    b.innerHTML=`<div class="ss-ico">${s.ico}</div><div class="ss-tag">${s.tag}</div><div class="ss-name">${s.n}</div>`;
+    b.onclick=()=>{document.querySelectorAll('.shor-btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(sdEl){sdEl.innerHTML=s.det;sdEl.classList.add('on')}};
+    sbEl.appendChild(b);
+  });
+}
+const ssEl=document.getElementById('shor-scale');
+if(ssEl){
+  [{b:512,n:'RSA-512',c:'var(--e4)'},{b:1024,n:'RSA-1024',c:'var(--e5)'},{b:2048,n:'RSA-2048',c:'var(--e1)'},{b:4096,n:'RSA-4096',c:'var(--e6)'}].forEach(r=>{
+    ssEl.innerHTML+=`<div style="display:flex;align-items:center;gap:10px;margin:7px 0"><span style="font-family:var(--f-mono);font-size:10px;color:${r.c};width:86px">${r.n}</span><div class="pb" style="flex:1"><div class="pf" style="width:${Math.round(r.b/4096*100)}%;background:${r.c}"></div></div><span style="font-family:var(--f-mono);font-size:10px;color:var(--t3)">${(9*r.b+2).toLocaleString()} q</span></div>`;
+  });
+}
+
+// ──── COMPOSER ────
+let comp={q0:[],q1:[],q2:[]},ctgt=0;
+const gcols2={H:'#5b7fff',X:'#00d4ff',Z:'#ffdb4f',CNOT:'#ff4f7b',T:'#3fffa8','⊕':'#ff4f7b'};
+window.cTgt=function(t){
+  ctgt=t;
+  [0,1,2].forEach(i=>{const b=document.getElementById('ct'+i);if(b){b.style.background=i===t?'rgba(91,127,255,0.12)':'var(--glass)';b.style.borderColor=i===t?'rgba(91,127,255,0.35)':'var(--line)';b.style.color=i===t?'var(--e1)':'var(--t3)'}});
+};
+window.cAdd=function(g){
+  comp['q'+ctgt].push(g);
+  if(g==='CNOT'){comp['q'+((ctgt+1)%3)].push('⊕')}
+  renderComp();
+};
+window.renderComp=function(){['q0','q1','q2'].forEach((q,i)=>{const el=document.getElementById('cw'+i);if(el)el.innerHTML=comp[q].map(g=>`<div class="wg" style="background:${gcols2[g]||'#555'}">${g}</div>`).join('')})};
+window.cClear=function(){comp={q0:[],q1:[],q2:[]};renderComp();document.getElementById('cmeas').classList.remove('show');document.getElementById('cstatus').textContent='Prêt'};
+window.cRun=function(){
+  const all=[...comp.q0,...comp.q1,...comp.q2];
+  const hasH=all.includes('H'),hasCNOT=all.includes('CNOT');
+  let states,desc;
+  if(hasH&&hasCNOT&&comp.q0.includes('H')){states=[{s:'|000⟩',p:.5},{s:'|111⟩',p:.5}];desc='GHZ = 1/√2(|000⟩+|111⟩)'}
+  else if(hasH&&hasCNOT){states=[{s:'|00⟩',p:.5},{s:'|11⟩',p:.5}];desc='Bell Φ⁺ = 1/√2(|00⟩+|11⟩)'}
+  else if(hasH){states=[{s:'|0⟩',p:.5},{s:'|1⟩',p:.5}];desc='Superposition uniforme'}
+  else{states=[{s:'|000⟩',p:1}];desc='Base |000⟩'}
+  document.getElementById('cbars').innerHTML=states.map(({s,p})=>`<div class="meas-row"><span class="meas-lbl">${s}</span><div class="pb" style="flex:1"><div class="pf" style="width:${Math.round(p*100)}%;background:linear-gradient(90deg,var(--e1),var(--e2))"></div></div><span style="font-family:var(--f-mono);font-size:10px;color:var(--t3)">${Math.round(p*100)}%</span></div>`).join('');
+  document.getElementById('cstate').textContent='État: '+desc;
+  const st=document.getElementById('cstatus');st.textContent='✓ OK';
+  document.getElementById('cmeas').classList.add('show');
+};
+window.cPreset=function(p){
+  cClear();
+  const pr={bell:{q0:['H','CNOT'],q1:['⊕'],q2:[]},ghz:{q0:['H','CNOT'],q1:['⊕','CNOT'],q2:['⊕']},super:{q0:['H'],q1:[],q2:[]}};
+  const preset=pr[p];if(preset){comp=preset;renderComp()}
+};
+
+// ──── ENCODE DEMO ────
+let lastBit=null;
+window.enc=function(m){
+  lastBit=m;const q=3329,v=m===0?0:Math.floor(q/2);
+  document.getElementById('enc-r').textContent=`encode(${m}) = ${v}`;
+  document.getElementById('enc-r').style.color=m===0?'var(--e2)':'var(--e1)';
+  document.getElementById('enc-mk').style.left=(v/q*100)+'%';
+  document.getElementById('enc-mk').style.background=m===0?'var(--e2)':'var(--e1)';
+  updNoise(document.getElementById('nsl').value);
+};
+window.updNoise=function(sigma){
+  document.getElementById('nval').textContent='σ='+sigma;
+  if(lastBit===null)return;
+  const q=3329,v=lastBit===0?0:Math.floor(q/2);
+  const noise=Math.round((Math.random()-.5)*sigma*2);
+  const recv=((v+noise)%q+q)%q;
+  const d0=Math.min(recv,q-recv),dH=Math.abs(recv-Math.floor(q/2));
+  const dec=d0<=dH?0:1,ok=dec===lastBit;
+  document.getElementById('nres').innerHTML=`valeur = ${v} + bruit(${noise>=0?'+'+noise:noise}) = <span style="color:var(--e5)">${recv}</span>\ndist 0: <span style="color:var(--e2)">${d0}</span> · dist q/2: <span style="color:var(--e1)">${dH}</span>\ndécodé → <span style="color:${ok?'var(--e6)':'var(--e4)'};font-weight:600">${dec} ${ok?'✓ Correct!':'✗ Erreur!'}</span>`;
+};
+
+// ──── MODAL ────
+window.mClose=()=>document.getElementById('modal').classList.remove('open');
+
+// ──── KEYBOARD ────
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')mClose();
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){
+    e.preventDefault();
+    toggleTheme();
+  }
+});
+
+// ──── INIT ────
+window.dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
+
